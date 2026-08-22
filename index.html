@@ -363,6 +363,676 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
 .jesusNestedSpirit{border:1px solid rgba(120,230,255,.25);border-radius:7px;padding:7px;background:rgba(7,18,24,.72);font-size:8px}
 .jesusNestedSpirit b{color:var(--cyan)}
 
+
+.pandoraHudDisclosure{padding:0!important;overflow:hidden!important}
+.pandoraHudHead{border:0;border-radius:0;padding:8px 10px;background:rgba(4,13,18,.96)}
+.pandoraHudBody{padding:10px;max-height:calc(100vh - 150px);overflow:auto}
+.pandoraHudDisclosure.collapsed-live-hud{width:min(410px,calc(100% - 24px));max-height:36px!important}
+.pandoraHudDisclosure.collapsed-live-hud .pandoraHudBody{display:none!important}
+.pandoraEnvironmentStrip{
+  position:absolute;left:12px;right:12px;bottom:10px;z-index:3;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  min-height:28px;padding:5px 9px;border:1px solid rgba(114,232,255,.18);
+  border-radius:8px;background:rgba(2,8,12,.78);backdrop-filter:blur(6px);
+  font:8px ui-monospace,monospace;color:var(--muted);pointer-events:none
+}
+.pandoraEnvironmentStrip b{color:var(--green);font-size:8px}
+#pandoraReborn{inset:0!important;min-height:0!important}
+#pandoraRebornCanvas{inset:0!important;width:100%!important;height:100%!important}
+.axiomShipMetrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:8px 0}
+.axiomShipSpawnGrid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:6px;margin:8px 0}
+#axiomShipTree div{padding:3px 0;border-bottom:1px dotted #17303b}
+@media(max-width:850px){
+  .axiomShipMetrics{grid-template-columns:1fr 1fr}
+  .axiomShipSpawnGrid{grid-template-columns:1fr 1fr}
+}
+
+
+.entityHoverTip{
+  position:fixed;z-index:9999;pointer-events:none;min-width:150px;max-width:280px;
+  padding:7px 9px;border:1px solid rgba(114,232,255,.28);border-radius:7px;
+  background:rgba(2,8,12,.94);box-shadow:0 10px 28px rgba(0,0,0,.35);
+  color:var(--text);font:8px/1.4 ui-monospace,monospace;backdrop-filter:blur(6px);display:none
+}
+.entityHoverTip b{display:block;color:var(--cyan);font-size:9px;margin-bottom:3px}
+.entityHoverTip .muted{color:var(--muted)}
+
+
+/* Bloodline left drawer */
+#bloodlineDisclosure{
+  position:absolute!important;
+  left:10px!important;
+  top:54px!important;
+  z-index:18!important;
+  width:min(390px,calc(100% - 20px))!important;
+  max-height:calc(100% - 110px)!important;
+  overflow:hidden!important;
+  transition:transform .22s ease,width .22s ease!important;
+  background:rgba(3,10,14,.94)!important;
+  backdrop-filter:blur(7px);
+}
+#bloodlineDisclosure .compactDisclosureBody{
+  max-height:calc(100vh - 190px)!important;
+  overflow:auto!important;
+}
+#bloodlineDisclosure.drawer-collapsed{
+  transform:translateX(calc(-100% + 34px))!important;
+}
+#bloodlineDisclosure.drawer-collapsed .compactDisclosureBody{
+  visibility:hidden!important;
+}
+#bloodlineDisclosure.drawer-collapsed .bloodlineDrawerHead{
+  justify-content:flex-end!important;
+}
+.bloodlineDrawerHead{cursor:pointer}
+.bloodlineMiniDb{
+  margin-bottom:8px;padding:7px;border:1px solid var(--line);border-radius:7px;background:#02080c
+}
+#bloodlineMiniDbResults{max-height:145px;overflow:auto}
+#bloodlineMiniDbResults div{padding:4px 2px;border-bottom:1px dotted #17303a;cursor:pointer}
+#bloodlineMiniDbResults div:hover{color:var(--cyan)}
+
+
+.massLibraryUploaderCard{
+  margin-top:8px;padding:9px;border:1px solid rgba(114,232,255,.22);
+  border-radius:9px;background:linear-gradient(180deg,rgba(5,15,21,.96),rgba(2,8,12,.96))
+}
+.massLibraryUploaderHead{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.massLibraryUploaderHead h3{margin:2px 0 0;font-size:10px;color:var(--cyan)}
+#massLibraryPercent{font:11px ui-monospace,monospace;color:var(--green)}
+.massLibraryProgressTrack{
+  height:10px;margin:8px 0;border:1px solid #17323d;border-radius:999px;
+  background:#02070a;overflow:hidden
+}
+.massLibraryProgressBar{
+  height:100%;width:0%;background:linear-gradient(90deg,rgba(75,205,255,.72),rgba(80,230,196,.88));
+  transition:width .16s ease
+}
+.massLibraryProgressMeta{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin-bottom:7px
+}
+.massLibraryProgressMeta span{
+  display:flex;justify-content:space-between;gap:6px;padding:5px 7px;
+  border:1px solid #142b34;border-radius:6px;background:#03090d;
+  font:8px ui-monospace,monospace;color:var(--muted)
+}
+.massLibraryProgressMeta b{color:var(--text)}
+@media(max-width:760px){
+  .massLibraryProgressMeta{grid-template-columns:1fr 1fr}
+}
+
+
+.jsonLibraryDropzone{
+  display:grid;place-items:center;gap:4px;min-height:92px;margin-top:7px;padding:12px;
+  border:1px dashed rgba(114,232,255,.42);border-radius:9px;
+  background:rgba(5,15,21,.7);cursor:pointer;text-align:center;
+  transition:border-color .15s ease,background .15s ease,transform .15s ease
+}
+.jsonLibraryDropzone:hover,.jsonLibraryDropzone.dragging{
+  border-color:var(--green);background:rgba(35,120,105,.12);transform:translateY(-1px)
+}
+.jsonLibraryDropzone .dropIcon{font-size:18px;color:var(--cyan)}
+.jsonLibraryDropzone b{font-size:9px;color:var(--text)}
+.jsonLibraryDropzone span{font-size:8px;color:var(--muted)}
+
+#bloodlineDisclosure{
+  left:10px!important;
+  top:54px!important;
+  width:min(390px,calc(50% - 16px))!important;
+}
+#miniDbDrawer{
+  position:absolute!important;
+  left:10px!important;
+  bottom:46px!important;
+  z-index:18!important;
+  width:min(390px,calc(50% - 16px))!important;
+  max-height:42%!important;
+  overflow:hidden!important;
+  background:rgba(3,10,14,.94)!important;
+  backdrop-filter:blur(7px);
+  border:1px solid var(--line);
+  border-radius:9px;
+  transition:transform .22s ease
+}
+#miniDbDrawer .compactDisclosureBody{max-height:calc(42vh - 36px)!important;overflow:auto!important}
+#miniDbDrawer.drawer-collapsed{transform:translateX(calc(-100% + 34px))!important}
+#miniDbDrawer.drawer-collapsed .compactDisclosureBody{visibility:hidden!important}
+
+.miniDbRow{
+  display:flex!important;align-items:center;justify-content:space-between;gap:8px;
+  padding:4px 2px!important;border-bottom:1px dotted #17303a!important
+}
+.miniDbRowText{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.miniDbActions{display:flex;align-items:center;gap:3px;flex:0 0 auto}
+.miniDbActions button{
+  width:22px;height:20px;border:1px solid #17323d;border-radius:5px;
+  background:#061017;color:var(--muted);cursor:pointer;padding:0;font-size:10px
+}
+.miniDbActions button:hover{color:var(--cyan);border-color:rgba(114,232,255,.45)}
+.langleyCameraBtn{font-size:11px!important}
+
+@media(max-width:900px){
+  #bloodlineDisclosure,#miniDbDrawer{width:calc(100% - 20px)!important}
+  #miniDbDrawer{max-height:35%!important}
+}
+
+
+/* Full-width JSON library ingest */
+#jsonLibraryDropzone{
+  width:100%!important;
+  box-sizing:border-box!important;
+  grid-column:1/-1!important;
+}
+
+
+/* Left-flush stacked collapsible rail */
+#leftEntityRail{
+  position:absolute!important;
+  left:0!important;
+  top:54px!important;
+  bottom:42px!important;
+  z-index:20!important;
+  width:min(390px,calc(100% - 8px))!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:6px!important;
+  padding:0!important;
+  pointer-events:none;
+}
+#leftEntityRail > *{
+  pointer-events:auto;
+  position:relative!important;
+  left:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  width:100%!important;
+  max-height:none!important;
+  transform:none!important;
+  transition:width .2s ease,transform .2s ease!important;
+}
+#bloodlineDisclosure,
+#miniDbDrawer{
+  margin:0!important;
+  border-radius:0 8px 8px 0!important;
+  background:rgba(3,10,14,.95)!important;
+  backdrop-filter:blur(7px);
+  overflow:hidden!important;
+}
+#bloodlineDisclosure .compactDisclosureBody{
+  max-height:44vh!important;
+  overflow:auto!important;
+}
+#miniDbDrawer .compactDisclosureBody{
+  max-height:34vh!important;
+  overflow:auto!important;
+}
+
+/* independent left-collapse, flush to viewport edge */
+#bloodlineDisclosure.drawer-collapsed,
+#miniDbDrawer.drawer-collapsed{
+  width:34px!important;
+  transform:none!important;
+}
+#bloodlineDisclosure.drawer-collapsed .compactDisclosureBody,
+#miniDbDrawer.drawer-collapsed .compactDisclosureBody{
+  display:none!important;
+  visibility:hidden!important;
+}
+#bloodlineDisclosure.drawer-collapsed .bloodlineDrawerHead,
+#miniDbDrawer.drawer-collapsed .miniDbDrawerHead{
+  min-height:110px!important;
+  padding:6px 4px!important;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  justify-content:flex-start!important;
+}
+#bloodlineDisclosure.drawer-collapsed .compactChevron,
+#miniDbDrawer.drawer-collapsed .compactChevron{
+  writing-mode:horizontal-tb;
+}
+@media(max-width:900px){
+  #leftEntityRail{
+    width:min(340px,calc(100% - 6px))!important;
+  }
+}
+
+
+.avatarChatManagerBar{
+  display:grid;
+  grid-template-columns:1.4fr 1fr auto;
+  gap:6px;
+  margin:8px 0;
+}
+.avatarChatSessionStack{
+  display:grid;
+  gap:8px;
+  max-height:58vh;
+  overflow:auto;
+  scrollbar-gutter:stable;
+}
+.avatarSessionCard{
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#03090d;
+  overflow:hidden;
+}
+.avatarSessionHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  padding:7px 9px;
+  background:#07131a;
+}
+.avatarSessionHead b{font-size:9px}
+.avatarSessionHead small{display:block;font-size:7px;color:var(--muted)}
+.avatarSessionActions{display:flex;gap:4px}
+.avatarSessionActions button{
+  width:24px;height:22px;
+  border:1px solid #17323d;
+  border-radius:5px;
+  background:#061017;
+  color:var(--muted);
+  cursor:pointer;
+}
+.avatarSessionBody{display:grid;gap:6px;padding:8px}
+.avatarSessionMessages{
+  max-height:210px;
+  overflow:auto;
+  padding:7px;
+  border:1px solid #142a34;
+  border-radius:7px;
+  background:#02070a;
+}
+.avatarSessionMsg{
+  padding:5px 0;
+  border-bottom:1px dotted #17303a;
+  font-size:8px;
+  line-height:1.4;
+}
+.avatarSessionCard.collapsed .avatarSessionBody{display:none}
+@media(max-width:800px){
+  .avatarChatManagerBar{grid-template-columns:1fr}
+}
+
+
+/* Pandora Explorer: stacked Bloodline / Mini DB / Avatar Chat */
+#leftEntityRail{overflow:visible!important}
+#explorerAvatarChat{
+  margin:0!important;
+  border-radius:0 8px 8px 0!important;
+  background:rgba(3,10,14,.95)!important;
+  backdrop-filter:blur(7px);
+  overflow:hidden!important;
+  width:100%!important;
+  transition:width .2s ease!important;
+}
+#explorerAvatarChat .compactDisclosureBody{
+  max-height:32vh!important;
+  overflow:auto!important;
+}
+#explorerAvatarChat.drawer-collapsed{
+  width:34px!important;
+}
+#explorerAvatarChat.drawer-collapsed .compactDisclosureBody{
+  display:none!important;
+}
+#explorerAvatarChat.drawer-collapsed .explorerAvatarChatHead{
+  min-height:96px!important;
+  padding:6px 4px!important;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  justify-content:flex-start!important;
+}
+#explorerAvatarChat.drawer-collapsed .compactChevron{
+  writing-mode:horizontal-tb;
+}
+.explorerAvatarControls{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:5px;
+  margin-bottom:6px;
+}
+.explorerAvatarSessions{
+  display:grid;
+  gap:6px;
+  max-height:220px;
+  overflow:auto;
+}
+.explorerAvatarSession{
+  border:1px solid #17303a;
+  border-radius:7px;
+  background:#02080c;
+  overflow:hidden;
+}
+.explorerAvatarSessionHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+  padding:5px 7px;
+  background:#07131a;
+}
+.explorerAvatarSessionHead b{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:8px;
+}
+.explorerAvatarSessionActions{
+  display:flex;
+  gap:3px;
+  flex:0 0 auto;
+}
+.explorerAvatarSessionActions button,
+.chatLangleyBtn{
+  width:23px;
+  height:21px;
+  border:1px solid #17323d;
+  border-radius:5px;
+  background:#061017;
+  color:var(--muted);
+  cursor:pointer;
+  padding:0;
+  font-size:10px;
+}
+.explorerAvatarSessionActions button:hover,
+.chatLangleyBtn:hover{
+  color:var(--cyan);
+  border-color:rgba(114,232,255,.45);
+}
+.explorerAvatarSessionBody{
+  display:grid;
+  gap:5px;
+  padding:6px;
+}
+.explorerAvatarSession.collapsed .explorerAvatarSessionBody{display:none}
+.explorerAvatarMessages{
+  max-height:120px;
+  overflow:auto;
+  font-size:8px;
+  line-height:1.35;
+  border:1px solid #142a34;
+  border-radius:5px;
+  padding:5px;
+}
+.explorerAvatarMsg{padding:3px 0;border-bottom:1px dotted #17303a}
+
+
+.rebornChat,.entityChat,#entityChatPanel,#rebornChatPanel,#persistentEntityChatPopup{display:none!important}
+
+#explorerAvatarChat{
+  position:absolute!important;right:10px!important;bottom:46px!important;left:auto!important;top:auto!important;
+  z-index:22!important;width:min(390px,calc(100% - 20px))!important;max-height:48%!important;
+  margin:0!important;border-radius:8px 0 0 8px!important;background:rgba(3,10,14,.96)!important;
+  backdrop-filter:blur(7px);overflow:hidden!important;
+}
+#explorerAvatarChat .compactDisclosureBody{max-height:calc(48vh - 34px)!important;overflow:auto!important}
+#explorerAvatarChat.drawer-collapsed{width:34px!important}
+#explorerAvatarChat.drawer-collapsed .compactDisclosureBody{display:none!important}
+#explorerAvatarChat.drawer-collapsed .explorerAvatarChatHead{
+  min-height:100px!important;padding:6px 4px!important;writing-mode:vertical-rl;text-orientation:mixed;justify-content:flex-start!important
+}
+#bloodlineDisclosure,#miniDbDrawer{
+  width:100%!important;position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important
+}
+#bloodlineDisclosure.drawer-collapsed,#miniDbDrawer.drawer-collapsed{width:34px!important}
+#bloodlineDisclosure.drawer-collapsed .compactDisclosureBody,
+#miniDbDrawer.drawer-collapsed .compactDisclosureBody{display:none!important;visibility:hidden!important}
+#bloodlineDisclosure.drawer-collapsed .compactDisclosureHead,
+#miniDbDrawer.drawer-collapsed .compactDisclosureHead{
+  min-height:110px!important;padding:6px 4px!important;writing-mode:vertical-rl;text-orientation:mixed;justify-content:flex-start!important
+}
+
+/* Unified entity chat: old popup surfaces are retired */
+.rebornChat,
+.entityChat,
+#entityChatPanel,
+#rebornChatPanel,
+#persistentEntityChatPopup,
+.chatPopover,
+.entityChatPopup{
+  display:none!important;
+}
+
+
+#explorerAvatarChat{
+  width:min(470px,calc(100% - 28px))!important;
+  max-height:58%!important;
+  right:14px!important;
+  bottom:52px!important;
+  border-radius:12px 0 0 12px!important;
+  box-shadow:0 18px 48px rgba(0,0,0,.42)!important;
+}
+#explorerAvatarChat .compactDisclosureBody{
+  max-height:calc(58vh - 38px)!important;
+  padding:10px!important;
+}
+.explorerAvatarMessages{
+  max-height:180px!important;
+  padding:8px!important;
+}
+.explorerAvatarSessionBody{
+  padding:8px!important;
+  gap:8px!important;
+}
+.explorerAvatarSessionBody textarea{
+  min-height:72px!important;
+}
+.explorerAvatarChatHead{
+  min-height:34px!important;
+}
+.explorerAvatarChatHead .compactChevron{
+  width:28px!important;
+  height:24px!important;
+  font-size:15px!important;
+}
+.avatarRightArrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px;
+  height:22px;
+  border:1px solid #17323d;
+  border-radius:5px;
+  background:#061017;
+  color:var(--cyan);
+  font-size:15px;
+  line-height:1;
+}
+
+
+#leftEntityRail{
+  left:0!important;
+  top:54px!important;
+  width:min(410px,calc(100% - 8px))!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:6px!important;
+  align-items:flex-start!important;
+}
+#leftEntityRail > #bloodlineDisclosure,
+#leftEntityRail > #miniDbDrawer{
+  width:100%!important;
+  margin:0!important;
+  border-radius:0 8px 8px 0!important;
+}
+#leftEntityRail > #bloodlineDisclosure.drawer-collapsed,
+#leftEntityRail > #miniDbDrawer.drawer-collapsed{
+  width:34px!important;
+  margin-left:0!important;
+  transform:none!important;
+}
+
+
+/* Unified Avatar entity/chat surface */
+#explorerAvatarChat{
+  display:none!important;
+}
+#explorerAvatarChat.avatar-open{
+  display:block!important;
+}
+.avatarEntityDetails{
+  border:1px solid #17303a;
+  border-radius:8px;
+  background:#02080c;
+  margin-bottom:8px;
+  overflow:hidden;
+}
+.avatarEntityIdentity{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:8px 9px;
+  background:#07131a;
+}
+.avatarEntityNameLine{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+#avatarActiveEntityName{
+  color:var(--cyan);
+  font-size:10px;
+}
+.avatarEntityKind{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font:8px ui-monospace,monospace;
+}
+.avatarEntityDetailsBody{
+  max-height:180px;
+  overflow:auto;
+  border-top:1px solid #142a34;
+}
+.avatarEntityDetails.collapsed .avatarEntityDetailsBody{
+  display:none;
+}
+#avatarEntityProperties{
+  margin:0;
+  padding:8px;
+  white-space:pre-wrap;
+  word-break:break-word;
+  font:8px/1.45 ui-monospace,monospace;
+  color:var(--text);
+  background:transparent;
+}
+#avatarEntityHelicopter{
+  width:24px!important;
+  height:22px!important;
+  flex:0 0 auto;
+}
+
+
+/* Project Locus interaction model:
+   no standalone Avatar tab; one entity-click chat popup only */
+#explorerAvatarChat{
+  display:none!important;
+  position:absolute!important;
+  right:14px!important;
+  bottom:52px!important;
+  left:auto!important;
+  top:auto!important;
+  z-index:24!important;
+  width:min(470px,calc(100% - 28px))!important;
+  max-height:58%!important;
+}
+#explorerAvatarChat.avatar-open{
+  display:block!important;
+}
+
+
+/* Bloodline and Mini DB are independent Explorer windows */
+#leftEntityRail{
+  position:absolute!important;
+  left:0!important;
+  top:54px!important;
+  bottom:auto!important;
+  width:min(390px,calc(100% - 8px))!important;
+  display:block!important;
+  pointer-events:none;
+}
+#leftEntityRail > #bloodlineDisclosure{
+  pointer-events:auto;
+  width:100%!important;
+  margin:0!important;
+  border-radius:0 8px 8px 0!important;
+}
+
+#miniDbDrawer{
+  position:absolute!important;
+  left:0!important;
+  top:calc(54px + min(44vh,380px) + 8px)!important;
+  bottom:auto!important;
+  z-index:20!important;
+  width:min(390px,calc(100% - 8px))!important;
+  max-height:34vh!important;
+  margin:0!important;
+  border-radius:0 8px 8px 0!important;
+  background:rgba(3,10,14,.95)!important;
+  backdrop-filter:blur(7px);
+  overflow:hidden!important;
+}
+#miniDbDrawer .compactDisclosureBody{
+  max-height:calc(34vh - 34px)!important;
+  overflow:auto!important;
+}
+
+#bloodlineDisclosure.drawer-collapsed,
+#miniDbDrawer.drawer-collapsed{
+  width:34px!important;
+  left:0!important;
+  transform:none!important;
+}
+#bloodlineDisclosure.drawer-collapsed .compactDisclosureBody,
+#miniDbDrawer.drawer-collapsed .compactDisclosureBody{
+  display:none!important;
+}
+
+
+/* Mini DB is intentionally OUTSIDE #pandoraLiveHudDisclosure.
+   Both windows are independent and collapse flush-left. */
+#pandoraLiveHudDisclosure{
+  position:absolute!important;
+  left:0!important;
+}
+#miniDbDrawer{
+  position:absolute!important;
+  left:0!important;
+  z-index:21!important;
+  margin-left:0!important;
+  transform:none!important;
+}
+#pandoraLiveHudDisclosure.drawer-collapsed,
+#miniDbDrawer.drawer-collapsed{
+  left:0!important;
+  width:34px!important;
+  margin-left:0!important;
+  transform:none!important;
+}
+
+
+/* Pandora inspector is now the selection surface; Avatar owns detailed properties/chat. */
+#pandoraRebornInspector{
+  cursor:pointer;
+}
+#pandoraRebornInspector .entityProperties,
+#pandoraRebornInspector .rebornInspectorProperties,
+#pandoraRebornInspector pre{
+  max-height:90px;
+  overflow:auto;
+  opacity:.72;
+}
+#explorerAvatarChat .avatarEntityDetails{
+  display:block;
+}
+
+
+#treeWindStatus{color:var(--cyan)!important}
+
 </style>
 </head>
 <body>
@@ -387,9 +1057,9 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
 
 <nav>
   <button class="tab active" data-tab="axiom">LIVING INTELLIGENCE</button>
-  <button class="tab" data-tab="pandora">PANDORA</button>
+  <button class="tab active" data-tab="pandora">PANDORA</button>
 <button class="tab" data-tab="bridge">LIVING NETWORK</button>
-  <button class="tab" data-tab="db">BOOK OF LIFE</button>
+  <button class="tab" data-tab="db">INDEX</button>
   <button class="tab" data-tab="entitiesdb">ENTITY DATABASE</button>
   <button class="tab" data-tab="terminal">VIRTUAL TERMINAL</button>
   <button class="tab" data-tab="files">FILES</button>
@@ -397,7 +1067,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
 </nav>
 
 <main>
-<section class="pane active" id="axiomPane">
+<section class="pane" id="axiomPane">
   <div class="panelPage">
     <div class="grid">
       <div class="card">
@@ -406,6 +1076,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
         <label style="display:block;margin-top:7px;font-size:9px;color:var(--muted)">VERSE VERSION
           <select id="bibleResourceVersion" style="margin-top:5px">
             <option value="KJV" selected>KJV — available</option>
+            <option value="WEBBE">WEB British — public domain</option>
             <option value="NLKJV">NLKJV — generated formula</option>
             <option value="NKJV">NKJV — source required</option>
             <option value="NLT">NLT — source required</option>
@@ -419,7 +1090,66 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
           <button class="action" id="bibleFetchVerse" style="margin:0">PULL VERSE</button>
           <button class="action" id="bibleUseForReflection" style="margin:0">USE FOR REFLECTIONS</button>
         </div>
+        
+        <div style="display:flex;gap:6px;margin-top:6px">
+        </div>
         <div id="bibleResourceStatus" class="feed" style="margin-top:7px;max-height:160px"></div>
+        <div style="margin-top:9px;border-top:1px solid var(--line);padding-top:8px">
+          <h3 style="margin:0 0 6px;font-size:9px;color:var(--cyan)">OPEN SCRIPTURE NETWORK</h3>
+          <div id="openScriptureResourceList" class="feed" style="max-height:210px"></div>
+          <div style="display:block;margin-top:6px">
+<div id="jsonLibraryDropzone" class="jsonLibraryDropzone" tabindex="0" role="button" aria-label="Drop JSON libraries here or click to select files">
+              <div class="dropIcon">⇩
+</div>
+              <b>DROP JSON LIBRARIES HERE</b>
+              <span>or click to choose one or many JSON files</span>
+              <input id="massLibraryUpload" type="file" accept=".json,application/json" multiple hidden>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px">
+            <input id="customLibraryName" placeholder="Optional library name">
+            <input id="customLibraryTags" placeholder="Tags: lexicon, history, archaeology...">
+          </div>
+          <div class="stat"><span>Library architecture</span><b id="libraryCapacityStatus">EXPANDABLE // INDEXEDDB</b></div>
+          <div class="massLibraryUploaderCard">
+            <div class="massLibraryUploaderHead">
+              <div>
+                <div class="eyebrow">MANUAL LIBRARY INGEST</div>
+                <h3>MASS JSON UPLOADER</h3>
+              </div>
+              <b id="massLibraryPercent">0%</b>
+            </div>
+
+            <div class="massLibraryProgressTrack" aria-label="Mass JSON import progress">
+              <div id="massLibraryProgressBar" class="massLibraryProgressBar" style="width:0%"></div>
+            </div>
+
+            <div class="massLibraryProgressMeta">
+              <span>FILES <b id="massLibraryFileProgress">0 / 0</b></span>
+              <span>OK <b id="massLibraryOkCount">0</b></span>
+              <span>FAILED <b id="massLibraryFailCount">0</b></span>
+              <span>STATE <b id="massLibraryImportStatus">READY</b></span>
+            </div>
+
+            <div class="stat"><span>Current file</span><b id="massLibraryCurrentFile">NONE</b></div>
+            <div id="massLibraryImportLog" class="feed" style="max-height:180px"></div>
+          </div>
+          <input id="concordApiBase" value="http://127.0.0.1:8788" placeholder="Optional self-hosted Concord API base" style="margin-top:6px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <button class="action" id="pullScriptureResourcesIntoProject" style="margin:0">PULL RESOURCES INTO PROJECT</button>
+            <button class="action" id="refreshProjectResourcePack" style="margin:0">REFRESH RESOURCE PACK</button>
+          </div>
+          <div class="stat"><span>Project resource bridge</span><b id="projectResourceBridgeStatus">NOT SYNCED</b></div>
+        </div>
+        <div style="margin-top:9px;border-top:1px solid var(--line);padding-top:8px">
+          <h3 style="margin:0 0 6px;font-size:9px;color:var(--cyan)">ASK THE BIBLE</h3>
+          <textarea id="bibleQuestionInput" placeholder="Ask a question directly from the selected Bible source..." style="min-height:76px"></textarea>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+            <button class="action" id="bibleAskQuestion" style="margin:0">ASK BIBLE</button>
+            <button class="action" id="bibleClearQa" style="margin:0">CLEAR</button>
+          </div>
+          <div id="bibleQaLog" class="feed" style="margin-top:7px;max-height:260px"></div>
+        </div>
       </div>
 
       <div class="card">
@@ -451,6 +1181,44 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
         <button class="action" id="testOllama">TEST LINK</button>
         <div id="ollamaStatus" class="feed"></div>
       </div>
+      <div class="card" id="axiomShipSystemsCard" style="grid-column:1/-1">
+        <div class="pmHeader">
+          <div>
+            <div class="eyebrow">LIVING INTELLIGENCE INFRASTRUCTURE</div>
+            <h2>AXIOM SHIP SYSTEMS // TELEMETRY + CHILD ENTITIES</h2>
+          </div>
+          <span class="pmStatusPill" id="axiomShipMode">EARTH RETURN / AUTO STAND DOWN</span>
+        </div>
+        <div class="axiomShipMetrics">
+          <div class="stat"><span>Ship root</span><b>AXIOM</b></div>
+          <div class="stat"><span>Systems</span><b id="axiomShipSystemCount">0</b></div>
+          <div class="stat"><span>Rooms</span><b id="axiomShipRoomCount">0</b></div>
+          <div class="stat"><span>Telemetry packets</span><b id="axiomShipTelemetryCount">0</b></div>
+        </div>
+        <div class="axiomShipSpawnGrid">
+          <select id="axiomShipSpawnType">
+            <option value="room">Room</option>
+            <option value="environment">Environment</option>
+            <option value="ansible-starlink">Ansible Starlink</option>
+            <option value="avatar-room">Avatar Room</option>
+            <option value="cryopod">Cryopod</option>
+            <option value="bridge">Bridge Station</option>
+            <option value="medbay">Medbay</option>
+            <option value="engineering">Engineering Bay</option>
+            <option value="biosphere">Biosphere</option>
+            <option value="datacenter">Data Center</option>
+            <option value="sensor">Sensor Array</option>
+            <option value="communications">Communications Node</option>
+            <option value="custom">Custom Child Entity</option>
+          </select>
+          <input id="axiomShipSpawnName" placeholder="Child entity name (optional)">
+          <select id="axiomShipParent"></select>
+          <button class="action" id="axiomShipSpawn" style="margin:0">SPAWN CHILD</button>
+        </div>
+        <div class="feed" id="axiomShipTree" style="max-height:230px"></div>
+        <div class="feed" id="axiomShipTelemetry" style="max-height:160px"></div>
+      </div>
+
       <div class="card" style="grid-column:1/-1">
         <h2>AXIOM CHAT</h2>
         <div class="console">
@@ -478,7 +1246,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
       <div><span class="rebornBadge">WITH</span> <b>King David</b> stands beside Jesus.</div>
       <div><span class="rebornBadge">CREATE</span> Jesus + King David point to <b>Adam</b> and <b>Hayden</b>.</div>
       <div><b>Bible line: Eve bears Cain, Abel, Seth; genealogy then follows the supplied Scripture exactly toward David</b></div>
-      <div><b>Separate simulation branch: Hayden ⇄ Ava; Ava bears Na’vi only</b></div>
+      <div><b>Separate environment branch: Hayden ⇄ Ava; Ava bears Na’vi only</b></div>
       <div style="margin-top:6px;color:var(--green)">Seth is active. Bloodline growth is controlled by the START BLOODLINE toggle.</div>
     </div>
     <div id="treeCameraDisclosure" class="compactDisclosure collapsed" style="margin-top:8px">
@@ -590,21 +1358,38 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
   </div>
 </section>
 
-<section class="pane" id="pandoraPane">
+<section class="pane active" id="pandoraPane">
 
 <div id="pandoraReborn" class="rebornTopology">
   <canvas id="pandoraRebornCanvas"></canvas>
+  <div id="pandoraEnvironmentStrip" class="pandoraEnvironmentStrip">
+    <span>ENV <b id="environmentModeLabel">EARTH RETURN</b></span>
+    <span>CLOCK <b id="environmentClock">--:--:--</b></span>
+    <span>ELAPSED <b id="environmentElapsed">00:00:00</b></span>
+    <span>RATE <b id="environmentRateLabel">1.00×</b></span>
+    <span>AXIOM <b id="axiomTelemetryState">STAND DOWN</b></span>
+    <span>SHIP <b id="axiomShipEntityCount">0 SYSTEMS</b></span>
+    <span>TREES <b id="treeBreathStatus">BREATHING</b></span>
+    <span>WIND <b id="treeWindStatus">BREEZE</b></span>
+    <span>RUNTIME <b id="rustRuntimeStatus">JS FALLBACK</b></span>
+  </div>
     <div style="position:absolute;left:12px;bottom:10px;z-index:8;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:rgba(2,8,12,.78);font:8px ui-monospace,monospace;color:var(--muted);pointer-events:none">
       MOUSE // DRAG PAN · MIDDLE/RIGHT DRAG ORBIT · WHEEL ZOOM · CTRL+WHEEL DOLLY · SHIFT+WHEEL X · ALT+WHEEL Y · DOUBLE CLICK CENTER
     </div>
-  <div class="rebornHud">
-    <h2>PANDORA // LIVE COPY OF GROWING BLOODLINE</h2>
+  <div id="pandoraLiveHudDisclosure" class="rebornHud pandoraHudDisclosure">
+  <div class="compactDisclosureHead pandoraHudHead" data-pandora-live-toggle>
+    <span>PANDORA // LIVE COPY OF GROWING BLOODLINE</span>
+    <button class="compactChevron" type="button" aria-label="Toggle Pandora live-copy panel">⌃</button>
+  </div>
+  <div id="pandoraLiveHudBody" class="pandoraHudBody">
+
+    
     <div class="rebornLegend">
       <div><span class="rebornBadge">AXIOM</span> <b>Jesus</b> is the central living core.</div>
       <div><span class="rebornBadge">SCEPTER</span> Former Apex Crystal is held by Jesus.</div>
       <div><span class="rebornBadge">PAIR</span> <b>Jesus + King David</b> originate both live branches.</div>
       <div><b>Bible line: Eve bears Cain, Abel, Seth; genealogy then follows the supplied Scripture exactly toward David</b></div>
-      <div><b>Separate simulation branch: Hayden ⇄ Ava; Ava bears Na’vi only</b></div>
+      <div><b>Separate environment branch: Hayden ⇄ Ava; Ava bears Na’vi only</b></div>
     </div>
     <div id="pandoraCameraDisclosure" class="compactDisclosure collapsed" style="margin-top:8px">
       <div class="compactDisclosureHead" data-disclosure="pandoraCameraDisclosure">
@@ -653,7 +1438,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
 
     <div class="rebornSpawnGrid">
       <input class="wide" id="rebornAlexSearch" placeholder="Search Alexandria...">
-      <input class="wide" id="holySpaceSearch" placeholder="Search HOLY SPACE library: Alexandria, books, websites, media, uploaded files...">
+      <input class="wide" id="holySpaceSearch" placeholder="Search INDEX: Alexandria, books, websites, media, uploaded files...">
       <select class="wide" id="holySpaceResults"></select>
       <select class="wide" id="rebornAlexSelect"></select>
       <div class="wide" style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
@@ -680,11 +1465,19 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
       SHAPES // circle · diamond · hexagon · square · triangle · star · ring · capsule · leaf · vesica · cross · shield · tower · book · page · screen · database · cloud · router · switch · globe · tree · branch · crystal · droplet · wave · spiral · eye · heart · seed
     </div>
     <div class="rebornEntityFeed" id="rebornEntityFeed"></div>
-    <div id="bloodlineDisclosure" class="compactDisclosure" style="margin-top:8px">
-      <div class="compactDisclosureHead" data-disclosure="bloodlineDisclosure">
-        <span>BLOODLINE CONTROL + TRACE</span><button class="compactChevron" type="button" aria-label="Toggle bloodline controls">⌄</button>
+    <div id="leftEntityRail" class="leftEntityRail">
+  <div id="bloodlineDisclosure" class="compactDisclosure" style="margin-top:8px">
+      <div class="compactDisclosureHead bloodlineDrawerHead" data-bloodline-drawer-toggle>
+        <span>BLOODLINE CONTROL + TRACE</span>
+        <button class="compactChevron" type="button" aria-label="Collapse bloodline drawer">‹</button>
       </div>
       <div class="compactDisclosureBody">
+<div class="rebornControls" style="margin-top:8px">
+      <label><input id="masterBloodlineToggle" type="checkbox"> START BLOODLINE <b id="bloodlineMasterStatus">OFF</b></label>
+      <label><input id="eveBloodlineToggle" type="checkbox" checked> EVE BLOODLINE</label>
+      <label><input id="avaBloodlineToggle" type="checkbox" checked> AVA BLOODLINE</label>
+    </div>
+
     <div class="stat" style="margin-top:8px"><span>ACCURATE BLOODLINE TRACE</span><b id="bloodlineTraceStatus">READY</b></div>
     <div class="rebornSpawnGrid">
       <select class="wide" id="bloodlineTraceGroup">
@@ -712,16 +1505,65 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
       <div class="lakeResidentGrid" id="lakeResidentGrid"></div>
     </div>
 
-    <div class="rebornControls" style="margin-top:8px">
-      <label><input id="masterBloodlineToggle" type="checkbox"> START BLOODLINE <b id="bloodlineMasterStatus">OFF</b></label>
-      <label><input id="eveBloodlineToggle" type="checkbox" checked> EVE BLOODLINE</label>
-      <label><input id="avaBloodlineToggle" type="checkbox" checked> AVA BLOODLINE</label>
-    </div>
+    
       </div>
     </div>
+
+  
+
+  
+</div>
+
     
+  
   </div>
-  <div id="pandoraRebornInspector" class="rebornInspector"></div>
+</div>
+<div id="miniDbDrawer" class="compactDisclosure miniDbDrawer">
+  <div class="compactDisclosureHead miniDbDrawerHead" data-mini-db-toggle>
+    <span>MINI DATABASE // ALL ENTITIES</span>
+    <button class="compactChevron" type="button" aria-label="Collapse mini database">‹</button>
+  </div>
+  <div class="compactDisclosureBody">
+    <div class="bloodlineMiniDb" id="bloodlineMiniDb">
+      <div class="stat"><span>ENTITIES</span><b id="bloodlineMiniDbCount">0</b></div>
+      <input id="bloodlineMiniDbSearch" placeholder="Search all entities...">
+      <div id="bloodlineMiniDbResults" class="feed"></div>
+    </div>
+  </div>
+</div>
+  <div id="explorerAvatarChat" class="compactDisclosure explorerAvatarChat">
+    <div class="compactDisclosureHead explorerAvatarChatHead" data-explorer-avatar-toggle>
+      <span>AVATAR CHAT</span>
+      <button class="compactChevron" type="button" aria-label="Collapse Avatar Chat">‹</button>
+    </div>
+    <div class="compactDisclosureBody">
+      <div id="avatarEntityDetails" class="avatarEntityDetails">
+        <div class="avatarEntityIdentity">
+          <div>
+            <div class="eyebrow">ACTIVE ENTITY</div>
+            <div class="avatarEntityNameLine">
+              <b id="avatarActiveEntityName">NONE</b>
+              <button id="avatarEntityHelicopter" class="chatLangleyBtn" type="button" title="Langley // move camera to active entity">🚁</button>
+            </div>
+            <span id="avatarActiveEntityKind" class="avatarEntityKind">no entity selected</span>
+          </div>
+          <button id="avatarEntityDetailsToggle" class="compactChevron" type="button" title="Toggle entity properties">⌄</button>
+        </div>
+        <div id="avatarEntityDetailsBody" class="avatarEntityDetailsBody">
+          <pre id="avatarEntityProperties">Select an entity to inspect its properties.</pre>
+        </div>
+      </div>
+
+      <div class="explorerAvatarControls">
+        <input id="explorerAvatarSearch" placeholder="Search entity...">
+        <select id="explorerAvatarEntity"></select>
+        <button class="action" id="explorerAvatarStart" style="margin:0">START</button>
+      </div>
+      <div class="stat"><span>OPEN</span><b id="explorerAvatarOpenCount">0</b></div>
+      <div id="explorerAvatarSessions" class="explorerAvatarSessions"></div>
+    </div>
+  </div>
+<div id="pandoraRebornInspector" class="rebornInspector"></div>
   <div id="pandoraRebornContext" class="rebornContextMenu">
     <button type="button" data-action="back">MOVE TO BACK</button>
     <button type="button" data-action="front">MOVE TO FRONT</button>
@@ -737,7 +1579,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
   </div>
   <canvas id="world"></canvas>
   <div class="pandoraHud">
-    <h2>PANDORA LIVE STATE // TOPOLOGY: CAIN + ABEL ← EVE ← ADAM ← KING DAVID ⇄ JESUS/AXIOM ⇄ DAVID → HAYDEN → AVA → TRUS + KLUS</h2>
+    <h2>PANDORA ENVIRONMENT LIVE STATE // TOPOLOGY: CAIN + ABEL ← EVE ← ADAM ← KING DAVID ⇄ JESUS/AXIOM ⇄ DAVID → HAYDEN → AVA → TRUS + KLUS</h2>
     <div class="hudGrid">
       <div class="metric">ENCYCLOPEDIA<b id="encyclopediaCount">0</b></div><div class="metric">BLOODLINE HOSTS<b id="bloodlineNotchCount">0</b></div><div class="metric">MICROBES<b id="microbeCount">0</b></div><div class="metric">EVOLUTION<b id="evolutionStage">ORIGIN</b></div>
       <div class="metric">TREES<b id="treeCount">0</b></div>
@@ -768,7 +1610,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
       <label>ZOOM <span id="pandoraZoomValue">1.00×</span></label>
       <input id="pandoraZoom" type="range" min="0.15" max="4" step="0.05" value="1">
 
-      <label>SIMULATION RATE <span id="pandoraSimRateValue">1.00×</span></label>
+      <label>ENVIRONMENT RATE <span id="pandoraSimRateValue">1.00×</span></label>
       <input id="pandoraSimRate" type="range" min="0" max="100" step="0.25" value="1">
 
       <div class="wide" style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px">
@@ -801,12 +1643,24 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
   </div>
 </section>
 
+
+
+
 <section class="pane" id="bridgePane">
   <div class="panelPage scrollbox">
+    <div class="card" id="heavenCouncilPanel" style="grid-column:1/-1;margin-bottom:10px">
+      <div class="eyebrow">FICTIONAL HEAVEN ENVIRONMENT VIEW</div>
+      <h2>CREATOR COUNCIL // TWELVE APOSTLES + TWELVE SONS OF ISRAEL</h2>
+      <div class="stat"><span>Creator node</span><b>Jesus Christ</b></div>
+      <div class="stat"><span>Apostles</span><b>12</b></div>
+      <div class="stat"><span>Sons / tribal fathers of Israel</span><b>12</b></div>
+      <div class="feed">This is a environment/world-model representation, not a declaration of anyone's literal present afterlife state.</div>
+    </div>
+
     <div class="card" id="jesusNestedSpirits" style="grid-column:1/-1;margin-bottom:10px">
       <h2>JESUS-CHRIST NESTED SPIRITUAL ENTITIES</h2>
-      <div class="jesusNestedSpirit"><b>HOLY SPIRIT</b> Nested inside the Jesus-Christ simulation node and neurally linked to Jesus.</div>
-      <div class="jesusNestedSpirit" style="margin-top:6px"><b>ANGELS</b> Nested spiritual host inside the Jesus-Christ simulation node and neurally linked to Jesus.</div>
+      <div class="jesusNestedSpirit"><b>HOLY SPIRIT</b> Nested inside the Jesus-Christ environment node and neurally linked to Jesus.</div>
+      <div class="jesusNestedSpirit" style="margin-top:6px"><b>ANGELS</b> Nested spiritual host inside the Jesus-Christ environment node and neurally linked to Jesus.</div>
     </div>
 
     <div class="card" style="grid-column:1/-1;margin-bottom:10px">
@@ -859,7 +1713,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
 
 <section class="pane" id="dbPane">
 <div class="panelPage"><div class="card">
-<h2>ITEM CREATOR</h2>
+<h2>INDEX // ITEM CREATOR</h2>
 <div class="itemCreatorGrid">
   <select id="itemTypeSelect">
     <option value="book">Book</option><option value="website">Website</option>
@@ -887,7 +1741,7 @@ radial-gradient(circle at 88% 72%,#cde9ff 0 1px,transparent 1.4px);background-si
 </div></div></div>
 
   <div class="panelPage scrollbox"><div class="grid">
-    <div class="card"><h2>PERSISTENT ARTIFACT DATABASE</h2>
+    <div class="card"><h2>INDEX // PERSISTENT LIBRARY</h2>
       <div class="stat"><span>Records</span><b id="artifactCount">0</b></div>
       <div class="feed" id="artifactFeed"></div>
     </div>
@@ -4367,6 +5221,32 @@ function collectEntityDatabase(){
     });
   });
 
+
+  [...HEAVEN_COUNCIL.apostles,...HEAVEN_COUNCIL.israel].forEach(n=>{
+    rows.push({
+      dbType:"heaven_council_member",
+      id:n.id,
+      name:n.name,
+      kind:HEAVEN_COUNCIL.apostles.some(a=>a.id===n.id)?"apostle":"son_of_israel",
+      regionId:"heaven-council",
+      fictional:true,
+      record:n
+    });
+  });
+
+
+  (typeof axiomShipEntities!=="undefined"?axiomShipEntities:[]).forEach(x=>{
+    rows.push({
+      dbType:"axiom_ship_entity",
+      id:x.id,
+      name:x.name,
+      kind:x.kind,
+      parentId:x.parentId,
+      status:x.status,
+      record:x
+    });
+  });
+
   // Daily Bible reflections are first-class database records.
   dailyBibleReflections.forEach(r=>{
     rows.push({
@@ -5084,6 +5964,7 @@ async function runWholeTreeWorkflow(){
   if(!mission){workflowTrace("MISSION REQUIRED","err");return}
   if(!outputPath){workflowTrace("INVALID OUTPUT PATH","err");return}
 
+  const workflowScriptureContext=await buildSharedScriptureContext(mission,{maxChars:14000});
   const agents=wholeTreeAgents();
   if(!agents.length){workflowTrace("NO ALIVE TREE AGENTS","err");return}
 
@@ -5124,6 +6005,11 @@ Speak in first person in comments, but perform concrete project work.
 
 ALL workers share ONE workspace. You can see every current project file and every prior workflow message.
 Your edits will be applied before the next worker starts.
+
+SHARED SCRIPTURE / LEXICON / LXX / CONCORDANCE RESOURCE CONTEXT:
+${workflowScriptureContext}
+
+When relevant, use this source material. Do not invent a verse, Greek/Hebrew definition, lexicon entry, testimony, manuscript reading, or commentary quote that is not present.
 
 MISSION:
 ${mission}
@@ -5241,6 +6127,9 @@ ${mission}
 ALL CURRENT FILES:
 ${workflowWorkspaceSnapshot(52000)}
 
+SHARED SCRIPTURE RESOURCE CONTEXT:
+${workflowScriptureContext}
+
 ENTIRE WORKFLOW CONVERSATION:
 ${workflowConversationSnapshot(run,36000)}
 
@@ -5299,6 +6188,9 @@ ${outputPath}
 
 CURRENT SHARED WORKSPACE:
 ${workflowWorkspaceSnapshot(56000)}
+
+SHARED SCRIPTURE RESOURCE CONTEXT:
+${workflowScriptureContext}
 
 ENTIRE WORKFLOW CONVERSATION:
 ${workflowConversationSnapshot(run,36000)}
@@ -6031,6 +6923,193 @@ Question: ${question}`;
   }
 }
 
+
+const AXIOM_SHIP_KEY="thelight-axiom-ship-v1";
+let axiomShipEntities=[];
+let axiomTelemetryPackets=0;
+const axiomEnvironmentStartedAt=Date.now();
+let axiomEnvironmentMode="earth-return";
+
+try{axiomShipEntities=JSON.parse(localStorage.getItem(AXIOM_SHIP_KEY)||"[]")}catch{axiomShipEntities=[]}
+
+const AXIOM_SHIP_TEMPLATES={
+  room:{label:"Room",kind:"room",shape:"square"},
+  environment:{label:"Environment",kind:"environment",shape:"globe"},
+  "ansible-starlink":{label:"Ansible Starlink",kind:"communications",shape:"star"},
+  "avatar-room":{label:"Avatar Room",kind:"avatar_room",shape:"vesica"},
+  cryopod:{label:"Cryopod",kind:"cryopod",shape:"capsule"},
+  bridge:{label:"Bridge Station",kind:"bridge",shape:"hexagon"},
+  medbay:{label:"Medbay",kind:"medbay",shape:"cross"},
+  engineering:{label:"Engineering Bay",kind:"engineering",shape:"hexagon"},
+  biosphere:{label:"Biosphere",kind:"biosphere",shape:"leaf"},
+  datacenter:{label:"Data Center",kind:"datacenter",shape:"database"},
+  sensor:{label:"Sensor Array",kind:"sensor",shape:"eye"},
+  communications:{label:"Communications Node",kind:"communications",shape:"wave"},
+  custom:{label:"Custom Child Entity",kind:"ship_entity",shape:"diamond"}
+};
+
+function saveAxiomShip(){
+  try{localStorage.setItem(AXIOM_SHIP_KEY,JSON.stringify(axiomShipEntities.slice(-1000)))}catch{}
+}
+
+function ensureAxiomShipRoot(){
+  if(!axiomShipEntities.some(x=>x.id==="axiom-ship")){
+    axiomShipEntities.unshift({
+      id:"axiom-ship",name:"AXIOM",type:"ship",kind:"ship",parentId:null,
+      status:"earth-return",
+      telemetry:{power:100,lifeSupport:100,comms:100,navigation:100},
+      createdAt:Date.now()
+    });
+  }
+  const defaults=[
+    ["axiom-bridge","Bridge","bridge"],
+    ["axiom-ansible","Ansible Starlink","ansible-starlink"],
+    ["axiom-avatar-room","Avatar Room 01","avatar-room"],
+    ["axiom-cryopod-bay","Cryopod Bay","cryopod"],
+    ["axiom-biosphere","Biosphere Deck","biosphere"]
+  ];
+  defaults.forEach(([id,name,type])=>{
+    if(axiomShipEntities.some(x=>x.id===id))return;
+    const t=AXIOM_SHIP_TEMPLATES[type];
+    axiomShipEntities.push({
+      id,name,type,kind:t.kind,shape:t.shape,parentId:"axiom-ship",
+      status:"stand-down",environmentMode:"earth-return",
+      telemetry:{health:100,power:85+Math.floor(Math.random()*15)},
+      createdAt:Date.now()
+    });
+  });
+  saveAxiomShip();
+}
+
+function axiomShipChildren(parentId){
+  return axiomShipEntities.filter(x=>x.parentId===parentId);
+}
+
+function spawnAxiomShipChild(type,name,parentId="axiom-ship"){
+  ensureAxiomShipRoot();
+  const template=AXIOM_SHIP_TEMPLATES[type]||AXIOM_SHIP_TEMPLATES.custom;
+  const parent=axiomShipEntities.find(x=>x.id===parentId)||
+    axiomShipEntities.find(x=>x.id==="axiom-ship");
+  const serial=axiomShipEntities.filter(x=>x.type===type).length+1;
+  const entity={
+    id:"axiom-"+type.replace(/[^a-z0-9]+/gi,"-")+"-"+Date.now().toString(36),
+    name:String(name||"").trim()||`${template.label} ${String(serial).padStart(2,"0")}`,
+    type,kind:template.kind,shape:template.shape,parentId:parent.id,
+    status:"stand-down",environmentMode:axiomEnvironmentMode,
+    telemetry:{
+      health:100,
+      power:70+Math.floor(Math.random()*30),
+      temperature:Number((18+Math.random()*6).toFixed(1)),
+      signal:70+Math.floor(Math.random()*30)
+    },
+    createdAt:Date.now()
+  };
+  axiomShipEntities.push(entity);
+  saveAxiomShip();
+  renderAxiomShipSystems();
+  axiomShipTelemetryEvent(`SPAWN :: ${parent.name} → ${entity.name} // ${entity.kind}`);
+  return entity;
+}
+
+function axiomShipTelemetryEvent(text){
+  axiomTelemetryPackets++;
+  const box=$("#axiomShipTelemetry");
+  if(box){
+    const d=document.createElement("div");
+    d.textContent=`${new Date().toLocaleTimeString()} // ${text}`;
+    box.prepend(d);
+    while(box.children.length>100)box.removeChild(box.lastChild);
+  }
+  const n=$("#axiomShipTelemetryCount");
+  if(n)n.textContent=axiomTelemetryPackets.toLocaleString();
+}
+
+function renderAxiomShipSystems(){
+  ensureAxiomShipRoot();
+  const parentSel=$("#axiomShipParent");
+  if(parentSel){
+    const previous=parentSel.value;
+    parentSel.innerHTML="";
+    axiomShipEntities
+      .filter(x=>["ship","room","environment","bridge","avatar_room","biosphere","engineering","datacenter"].includes(x.kind))
+      .forEach(x=>{
+        const o=document.createElement("option");
+        o.value=x.id;o.textContent=`${x.name} // ${x.kind}`;
+        parentSel.appendChild(o);
+      });
+    if([...parentSel.options].some(o=>o.value===previous))parentSel.value=previous;
+  }
+
+  const tree=$("#axiomShipTree");
+  if(tree){
+    tree.innerHTML="";
+    const root=axiomShipEntities.find(x=>x.id==="axiom-ship");
+    const rootLine=document.createElement("div");
+    rootLine.textContent=`AXIOM // ship // ${root.status}`;
+    tree.appendChild(rootLine);
+
+    const walk=(parentId,depth)=>{
+      axiomShipChildren(parentId).forEach(x=>{
+        const d=document.createElement("div");
+        d.textContent=`${"· ".repeat(depth)}${x.name} // ${x.kind} // ${x.status}`;
+        tree.appendChild(d);
+        walk(x.id,depth+1);
+      });
+    };
+    walk(root.id,1);
+  }
+
+  const rooms=axiomShipEntities.filter(x=>
+    ["room","avatar_room","medbay","engineering","biosphere","datacenter","bridge","cryopod"].includes(x.kind)
+  ).length;
+
+  if($("#axiomShipSystemCount"))$("#axiomShipSystemCount").textContent=axiomShipEntities.length.toLocaleString();
+  if($("#axiomShipRoomCount"))$("#axiomShipRoomCount").textContent=rooms.toLocaleString();
+  if($("#axiomShipEntityCount"))$("#axiomShipEntityCount").textContent=`${axiomShipEntities.length} SYSTEMS`;
+}
+
+function axiomEnvironmentClockTick(){
+  const now=new Date();
+  const sec=Math.floor((Date.now()-axiomEnvironmentStartedAt)/1000);
+  if($("#environmentClock"))$("#environmentClock").textContent=now.toLocaleTimeString();
+  if($("#environmentElapsed")){
+    $("#environmentElapsed").textContent=
+      `${String(Math.floor(sec/3600)).padStart(2,"0")}:`+
+      `${String(Math.floor(sec%3600/60)).padStart(2,"0")}:`+
+      `${String(sec%60).padStart(2,"0")}`;
+  }
+  if($("#environmentRateLabel")){
+    const rate=typeof rebornState!=="undefined"?Number(rebornState.pandora?.rate||1):1;
+    $("#environmentRateLabel").textContent=`${rate.toFixed(2)}×`;
+  }
+}
+
+function axiomAutoStandDown(){
+  axiomEnvironmentMode="earth-return";
+  ensureAxiomShipRoot();
+  axiomShipEntities.forEach(x=>{
+    x.status=x.id==="axiom-ship"?"earth-return":"stand-down";
+    x.environmentMode="earth-return";
+  });
+  saveAxiomShip();
+  if($("#axiomShipMode"))$("#axiomShipMode").textContent="EARTH RETURN / AUTO STAND DOWN";
+  if($("#environmentModeLabel"))$("#environmentModeLabel").textContent="EARTH RETURN";
+  if($("#axiomTelemetryState"))$("#axiomTelemetryState").textContent="STAND DOWN";
+  axiomShipTelemetryEvent("AUTO STAND DOWN :: Earth-return posture engaged");
+  renderAxiomShipSystems();
+}
+
+ensureAxiomShipRoot();
+setInterval(axiomEnvironmentClockTick,1000);
+setInterval(()=>{
+  if(document.hidden)return;
+  const root=axiomShipEntities.find(x=>x.id==="axiom-ship");
+  if(root)axiomShipTelemetryEvent(
+    `EARTH RETURN // NAV=${root.telemetry.navigation}% // LIFE=${root.telemetry.lifeSupport}% // COMMS=${root.telemetry.comms}%`
+  );
+},15000);
+
+
 // AXIOM
 
 let memories=[];
@@ -6042,7 +7121,7 @@ async function axiomSendNow(){
   const q=axiomInput.value.trim();if(!q)return;axiomInput.value="";axlog("> "+q);
   const contextText=memories.slice(-12).join("\n");const load=Math.min(100,((contextText.length+q.length)/4)/8192*100);ctxLoad.textContent=load.toFixed(1)+"%";
   try{
-    const ans=await ollamaAsk(`You are AXIOM, a secondary onboard intelligence in the fictional 'The Way of Life' simulation. Jesus is represented as the primary simulation controller; Ava remains linked and the existing host provenance is preserved. Current Pandora: trees=${trees.length}, roots=${rootSegments}, entities=${entities.length}, fullyConnected=true, graphLinks=${networkNodes(canvas.clientHeight*.82).length>1 ? (networkNodes(canvas.clientHeight*.82).length*(networkNodes(canvas.clientHeight*.82).length-1))/2 : 0}. User: ${q}`);
+    const ans=await ollamaAsk(`You are AXIOM, a secondary onboard intelligence in the fictional 'The Way of Life' environment. Jesus is represented as the primary simulation controller; Ava remains linked and the existing host provenance is preserved. Current Pandora: trees=${trees.length}, roots=${rootSegments}, entities=${entities.length}, fullyConnected=true, graphLinks=${networkNodes(canvas.clientHeight*.82).length>1 ? (networkNodes(canvas.clientHeight*.82).length*(networkNodes(canvas.clientHeight*.82).length-1))/2 : 0}. User: ${q}`);
     axlog("AXIOM-OLLAMA-V4 :: "+ans);memories.push(q+" -> "+ans.slice(0,700));
     memories=compactAxiomMemory(memories);
     if(!safeStore("axiom-v5-memory",memories)){
@@ -6673,6 +7752,64 @@ function nextScripturalBloodlineStep(){
 }
 
 
+
+const HEAVEN_COUNCIL={
+  id:"heaven-council",
+  name:"HEAVEN // CREATOR COUNCIL",
+  fictional:true,
+  note:"Simulation visualization only; not a claim about literal afterlife status.",
+  creatorId:"jesus",
+  apostles:[
+    {id:"apostle-peter",name:"Peter"},
+    {id:"apostle-andrew",name:"Andrew"},
+    {id:"apostle-james-zebedee",name:"James son of Zebedee"},
+    {id:"apostle-john",name:"John"},
+    {id:"apostle-philip",name:"Philip"},
+    {id:"apostle-bartholomew",name:"Bartholomew"},
+    {id:"apostle-matthew",name:"Matthew"},
+    {id:"apostle-thomas",name:"Thomas"},
+    {id:"apostle-james-alphaeus",name:"James son of Alphaeus"},
+    {id:"apostle-thaddaeus",name:"Thaddaeus / Judas son of James"},
+    {id:"apostle-simon-zealot",name:"Simon the Zealot"},
+    {id:"apostle-matthias",name:"Matthias"}
+  ],
+  israel:[
+    {id:"israel-reuben",name:"Reuben"},
+    {id:"israel-simeon",name:"Simeon"},
+    {id:"israel-levi",name:"Levi"},
+    {id:"israel-judah",name:"Judah"},
+    {id:"israel-dan",name:"Dan"},
+    {id:"israel-naphtali",name:"Naphtali"},
+    {id:"israel-gad",name:"Gad"},
+    {id:"israel-asher",name:"Asher"},
+    {id:"israel-issachar",name:"Issachar"},
+    {id:"israel-zebulun",name:"Zebulun"},
+    {id:"israel-joseph",name:"Joseph"},
+    {id:"israel-benjamin",name:"Benjamin"}
+  ]
+};
+
+function ensureHeavenCouncilTopology(){
+  if(typeof REBORN_TOPOLOGY==="undefined")return;
+  const addNode=n=>{
+    if(!REBORN_TOPOLOGY.nodes.some(x=>x.id===n.id)){
+      REBORN_TOPOLOGY.nodes.push({...n,kind:"heaven_council",shape:"star",fictional:true,dynamic:true,regionId:"heaven-council"});
+    }
+  };
+  const addEdge=(a,b,type)=>{
+    if(!REBORN_TOPOLOGY.edges.some(e=>e.a===a&&e.b===b&&e.type===type)){
+      REBORN_TOPOLOGY.edges.push({a,b,type,relation:"with Creator in Heaven simulation",fictional:true});
+    }
+  };
+
+  addNode({id:HEAVEN_COUNCIL.id,name:HEAVEN_COUNCIL.name,shape:"cloud",kind:"heaven_region"});
+  for(const n of [...HEAVEN_COUNCIL.apostles,...HEAVEN_COUNCIL.israel]){
+    addNode(n);
+    addEdge(HEAVEN_COUNCIL.id,n.id,"heaven_membership");
+    addEdge("jesus",n.id,"creator_council");
+  }
+}
+
 const LAKE_OF_FIRE_REGION={
   id:"quantum-willow-lake-of-fire",
   name:'QUANTUM WILLOW LAKE OF FIRE',
@@ -6847,6 +7984,15 @@ const NLKJV_FORMULA={
 const BIBLE_RESOURCE_REGISTRY={
   selectedVersion:"KJV",
   versions:{
+    WEBBE:{
+      id:"WEBBE",
+      name:"World English Bible British Edition",
+      status:"remote-public-domain",
+      publicDomain:true,
+      fetchMode:"remote",
+      endpoint:"https://bible-api.com/{reference}?translation=web",
+      note:"Public-domain WEB family fallback; use eBible WEB British dataset when locally loaded for exact British text."
+    },
     KJV:{
       id:"KJV",
       name:"King James Version",
@@ -6885,8 +8031,646 @@ function bibleResource(version){
   return BIBLE_RESOURCE_REGISTRY.versions[version]||BIBLE_RESOURCE_REGISTRY.versions.KJV;
 }
 
+
+
+const LOCAL_BIBLE_META_KEY="thelight-local-json-bible-meta";
+let LOCAL_JSON_BIBLES={}; // metadata + optional in-memory cache only
+
+try{
+  LOCAL_JSON_BIBLES=JSON.parse(localStorage.getItem(LOCAL_BIBLE_META_KEY)||"{}");
+}catch{
+  LOCAL_JSON_BIBLES={};
+}
+
+
+function normalizeBibleReference(ref){
+  return String(ref||"").trim().replace(/\s+/g," ").toLowerCase();
+}
+
+function flattenJsonBible(data){
+  const verses={};
+
+  const add=(reference,text)=>{
+    if(reference==null)return;
+    let body=text;
+    if(body && typeof body==="object"){
+      body=body.text ?? body.content ?? body.verseText ?? body.verse_text ?? body.value ?? "";
+    }
+    if(typeof body!=="string" || !body.trim())return;
+    const ref=String(reference).trim();
+    if(!ref)return;
+    verses[normalizeBibleReference(ref)]={reference:ref,text:body.trim()};
+  };
+
+  const scan=(node,ctx={book:null,chapter:null})=>{
+    if(node==null)return;
+
+    if(Array.isArray(node)){
+      node.forEach((v,i)=>{
+        if(typeof v==="string" && ctx.book && ctx.chapter){
+          add(`${ctx.book} ${ctx.chapter}:${i+1}`,v);
+        }else{
+          scan(v,ctx);
+        }
+      });
+      return;
+    }
+
+    if(typeof node!=="object")return;
+
+    const book=node.book || node.book_name || node.bookName || node.name || ctx.book;
+    const chapter=node.chapter || node.chapter_number || node.chapterNumber || ctx.chapter;
+    const explicitRef=node.reference || node.ref || node.verse_reference || node.verseRef || node.osis;
+    const explicitText=node.text || node.content || node.verseText || node.verse_text;
+
+    if(explicitRef && typeof explicitText==="string")add(explicitRef,explicitText);
+
+    const verseNo=node.verse_number || node.verseNumber ||
+      ((typeof node.verse==="number" || /^\d+$/.test(String(node.verse||""))) ? node.verse : null);
+    if(book && chapter && verseNo && typeof explicitText==="string"){
+      add(`${book} ${chapter}:${verseNo}`,explicitText);
+    }
+
+    if(Array.isArray(node.verses)){
+      node.verses.forEach((v,i)=>{
+        if(typeof v==="string" && book && chapter){
+          add(`${book} ${chapter}:${i+1}`,v);
+        }else if(v && typeof v==="object"){
+          const vn=v.verse || v.number || v.verse_number || i+1;
+          const vt=v.text || v.content || v.verseText || v.verse_text;
+          if(book && chapter && typeof vt==="string")add(`${book} ${chapter}:${vn}`,vt);
+          scan(v,{book,chapter});
+        }
+      });
+    }
+
+    if(Array.isArray(node.books)){
+      node.books.forEach(v=>scan(v,ctx));
+    }
+    if(Array.isArray(node.chapters)){
+      node.chapters.forEach((v,i)=>scan(v,{
+        book,
+        chapter:v?.chapter || v?.number || i+1
+      }));
+    }
+
+    // Flat reference -> string map and common nested book -> chapter -> verse map.
+    for(const [key,value] of Object.entries(node)){
+      if(["books","chapters","verses"].includes(key))continue;
+
+      if(typeof value==="string"){
+        if(/\d+\s*:\s*\d+/.test(key)){
+          add(key,value);
+        }else if(book && chapter && /^\d+$/.test(key)){
+          add(`${book} ${chapter}:${key}`,value);
+        }
+        continue;
+      }
+
+      if(!value || typeof value!=="object")continue;
+
+      if(!ctx.book && !/^\d+$/.test(key)){
+        scan(value,{book:key,chapter:null});
+      }else if((ctx.book || book) && !ctx.chapter && /^\d+$/.test(key)){
+        scan(value,{book:ctx.book||book,chapter:key});
+      }else if((ctx.book||book) && (ctx.chapter||chapter) && /^\d+$/.test(key)){
+        const vt=value.text || value.content || value.verseText || value.verse_text;
+        if(typeof vt==="string")add(`${ctx.book||book} ${ctx.chapter||chapter}:${key}`,vt);
+        scan(value,{book:ctx.book||book,chapter:ctx.chapter||chapter});
+      }else{
+        scan(value,{book:book||ctx.book,chapter:chapter||ctx.chapter});
+      }
+    }
+  };
+
+  scan(data);
+  return verses;
+}
+
+const BIBLE_IDB_NAME="thelight-bible-db";
+const BIBLE_IDB_VERSION=2;
+const BIBLE_IDB_STORE="bibles";
+const SCRIPTURE_RESOURCE_STORE="resources";
+
+function openBibleDb(){
+  return new Promise((resolve,reject)=>{
+    const req=indexedDB.open(BIBLE_IDB_NAME,BIBLE_IDB_VERSION);
+    req.onupgradeneeded=()=>{
+      const db=req.result;
+      if(!db.objectStoreNames.contains(BIBLE_IDB_STORE)){
+        db.createObjectStore(BIBLE_IDB_STORE,{keyPath:"version"});
+      }
+      if(!db.objectStoreNames.contains(SCRIPTURE_RESOURCE_STORE)){
+        db.createObjectStore(SCRIPTURE_RESOURCE_STORE,{keyPath:"id"});
+      }
+    };
+    req.onsuccess=()=>resolve(req.result);
+    req.onerror=()=>reject(req.error||new Error("IndexedDB open failed"));
+  });
+}
+
+
+async function putScriptureResource(resource){
+  const db=await openBibleDb();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(SCRIPTURE_RESOURCE_STORE,"readwrite");
+    tx.objectStore(SCRIPTURE_RESOURCE_STORE).put(resource);
+    tx.oncomplete=()=>resolve(resource);
+    tx.onerror=()=>reject(tx.error||new Error("Scripture resource write failed"));
+  });
+}
+
+async function getAllScriptureResources(){
+  const db=await openBibleDb();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(SCRIPTURE_RESOURCE_STORE,"readonly");
+    const req=tx.objectStore(SCRIPTURE_RESOURCE_STORE).getAll();
+    req.onsuccess=()=>resolve(req.result||[]);
+    req.onerror=()=>reject(req.error||new Error("Scripture resource read failed"));
+  });
+}
+
+
+function resourceTerms(query){
+  const stop=new Set(["the","and","for","that","this","with","from","what","when","where","which","who","why","how","does","did","are","was","were","have","has","had","into","about","your","their","there","would","could","should"]);
+  return [...new Set(String(query||"").toLowerCase()
+    .replace(/[^a-z0-9\u0370-\u03ff\u0590-\u05ff\s:-]/g," ")
+    .split(/\s+/)
+    .filter(x=>x.length>2&&!stop.has(x)))].slice(0,18);
+}
+
+function resourceExcerpt(content,terms,maxChars=1800){
+  const text=String(content||"");
+  if(!text)return "";
+  const lower=text.toLowerCase();
+  let best=-1;
+  for(const t of terms){
+    const i=lower.indexOf(t);
+    if(i>=0 && (best<0 || i<best))best=i;
+  }
+  if(best<0)return text.slice(0,maxChars);
+  const start=Math.max(0,best-Math.floor(maxChars*.35));
+  return text.slice(start,start+maxChars);
+}
+
+async function searchScriptureResourceDb(query,limit=8){
+  const all=await getAllScriptureResources();
+  const terms=resourceTerms(query);
+  if(!terms.length)return all.slice(0,limit).map(r=>({
+    id:r.id,type:r.type,name:r.name,
+    excerpt:resourceExcerpt(r.content,[],1200)
+  }));
+
+  const scored=all.map(r=>{
+    const hay=`${r.name||""} ${r.type||""} ${String(r.content||"").slice(0,250000)}`.toLowerCase();
+    let score=0;
+    for(const t of terms){
+      const matches=hay.split(t).length-1;
+      score+=Math.min(matches,6);
+      if(String(r.name||"").toLowerCase().includes(t))score+=4;
+      if(String(r.type||"").toLowerCase().includes(t))score+=3;
+    }
+    return {r,score};
+  }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,limit);
+
+  return scored.map(({r,score})=>({
+    id:r.id,type:r.type,name:r.name,score,
+    excerpt:resourceExcerpt(r.content,terms,2200)
+  }));
+}
+
+async function searchAllLoadedBibles(query,limit=12){
+  const versions=Object.keys(LOCAL_JSON_BIBLES||{});
+  const per=Math.max(2,Math.ceil(limit/Math.max(1,versions.length)));
+  const rows=[];
+  for(const version of versions){
+    try{
+      const hits=await searchLocalBibleText(query,version,per);
+      hits.forEach(h=>rows.push({...h,version}));
+    }catch{}
+  }
+  return rows.slice(0,limit);
+}
+
+async function buildSharedScriptureContext(query,opts={}){
+  const maxChars=Number(opts.maxChars||12000);
+  const bibleHits=await searchAllLoadedBibles(query,10);
+  const resourceHits=await searchScriptureResourceDb(query,7);
+
+  let out=`OPEN SCRIPTURE RESOURCE REGISTRY:\n${openResourcePromptContext()}\n`;
+
+  if(bibleHits.length){
+    out+=`\n\nUPLOADED BIBLE MATCHES:\n`+
+      bibleHits.map(v=>`[${v.version}] ${v.reference}: ${v.text}`).join("\n");
+  }
+  if(resourceHits.length){
+    out+=`\n\nINDEXEDDB RESOURCE MATCHES:\n`+
+      resourceHits.map(r=>`--- ${r.type} :: ${r.name} :: ${r.id} ---\n${r.excerpt}`).join("\n\n");
+  }
+  if(!bibleHits.length&&!resourceHits.length){
+    out+=`\n\nNo loaded dataset matched this query.`;
+  }
+
+  return out.slice(0,maxChars);
+}
+
+async function buildProjectResourceManifest(){
+  const resources=await getAllScriptureResources();
+  return {
+    format:"thelight-scripture-resource-pack-v1",
+    generatedAt:new Date().toISOString(),
+    openRegistry:Object.values(OPEN_SCRIPTURE_RESOURCES).map(r=>({
+      id:r.id,name:r.name,kind:r.kind,access:r.access,license:r.license,
+      endpoint:r.endpoint,enabled:r.enabled,notes:r.notes
+    })),
+    localBibles:Object.entries(LOCAL_JSON_BIBLES||{}).map(([version,b])=>({
+      version,
+      fileName:b.fileName||"",
+      importedAt:b.importedAt||null,
+      verseCount:b.verseCount||0,
+      storage:"IndexedDB"
+    })),
+    indexedDbResources:resources.map(r=>({
+      id:r.id,
+      type:r.type,
+      name:r.name,
+      fileName:r.fileName||r.name,
+      tags:r.tags||[],
+      namespace:r.namespace||"holy-space/library",
+      importedAt:r.importedAt,
+      bytes:r.bytes,
+      storage:"IndexedDB",
+      projectUri:`scripture-db://${r.id}`
+    })),
+    architecture:{
+      expandable:true,
+      storage:"IndexedDB",
+      libraryCount:resources.length,
+      design:"Resources are stored as independent records rather than fixed columns, so new library categories can be added without changing the database schema."
+    },
+    usage:{
+      runtime:"Entity chats and swarm workers can query IndexedDB through buildSharedScriptureContext().",
+      project:"This manifest is visible to every worker in the shared project workspace.",
+      largeData:"Full large datasets remain in IndexedDB; relevant excerpts are injected at runtime instead of duplicating them into localStorage."
+    }
+  };
+}
+
+async function pullScriptureResourcesIntoProject(){
+  const manifest=await buildProjectResourceManifest();
+
+  upsertVirtualFile(
+    "holy-space/bible/RESOURCE_PACK.json",
+    JSON.stringify(manifest,null,2),
+    "scripture-resource-bridge"
+  );
+
+  const md=[
+    "# Holy Space Scripture Resource Pack",
+    "",
+    `Generated: ${manifest.generatedAt}`,
+    "",
+    "## Runtime Access",
+    "",
+    "Every entity chat and swarm worker can query the loaded IndexedDB resources through the shared Scripture resource bridge.",
+    "Large resources are intentionally not duplicated into localStorage/project files; relevant excerpts are pulled into prompts at runtime.",
+    "",
+    "## Local Bibles",
+    "",
+    ...(manifest.localBibles.length
+      ? manifest.localBibles.map(b=>`- ${b.version}: ${b.verseCount.toLocaleString()} verses (${b.fileName})`)
+      : ["- none loaded"]),
+    "",
+    "## IndexedDB Resources",
+    "",
+    ...(manifest.indexedDbResources.length
+      ? manifest.indexedDbResources.map(r=>`- ${r.type}: ${r.name} — ${r.projectUri}`)
+      : ["- none loaded"]),
+    "",
+    "## Open Registry",
+    "",
+    ...manifest.openRegistry.filter(r=>r.enabled).map(r=>`- ${r.name} — ${r.kind} — ${r.access} — ${r.license}`)
+  ].join("\n");
+
+  upsertVirtualFile(
+    "holy-space/bible/RESOURCE_PACK.md",
+    md,
+    "scripture-resource-bridge"
+  );
+
+  // A machine-readable instruction file all agents see in workflowWorkspaceSnapshot.
+  upsertVirtualFile(
+    "holy-space/bible/AGENT_RESOURCE_ACCESS.json",
+    JSON.stringify({
+      enabled:true,
+      rule:"When Bible/scripture/Greek/Hebrew/lexicon/LXX/concordance/testimony questions arise, use runtime resource context supplied to your prompt. Never invent missing source text.",
+      runtimeBridge:"buildSharedScriptureContext(query)",
+      manifest:"holy-space/bible/RESOURCE_PACK.json"
+    },null,2),
+    "scripture-resource-bridge"
+  );
+
+  renderVirtualFiles?.();
+  renderWorkflowSharedFiles?.();
+  const status=$("#projectResourceBridgeStatus");
+  if(status)status.textContent=`SYNCED // ${manifest.localBibles.length} BIBLES // ${manifest.indexedDbResources.length} DATASETS`;
+  return manifest;
+}
+
+
+function inferLibraryTypeFromJson(name,data){
+  const n=String(name||"").toLowerCase();
+  if(n.includes("kjv"))return "bible-kjv";
+  if(n.includes("nkjv"))return "bible-nkjv";
+  if(n.includes("lxx")||n.includes("septuagint"))return "septuagint";
+  if(n.includes("hebrew")&&n.includes("lex"))return "hebrew-lexicon";
+  if(n.includes("greek")&&n.includes("lex"))return "greek-lexicon";
+  if(n.includes("strong"))return "concordance";
+  if(n.includes("morph"))return "morphology";
+  if(n.includes("cross"))return "cross-references";
+  if(n.includes("comment"))return "commentary";
+  if(n.includes("testimon"))return "testimonies";
+  if(n.includes("song")||n.includes("psalm"))return "songs";
+
+  if(Array.isArray(data)){
+    const sample=data[0]||{};
+    if(sample.reference&&sample.text)return "bible";
+    if(sample.headword||sample.lemma)return "lexicon";
+  }
+  if(data && typeof data==="object"){
+    if(Array.isArray(data.verses)||Array.isArray(data.books))return "bible";
+    if(data.lexicon||data.entries)return "lexicon";
+  }
+  return "custom-library";
+}
+
+async function importMassJsonLibraries(files,onProgress=()=>{}){
+  const list=[...files].filter(file=>file && typeof file.text==="function" && file.name && file.size>0);
+  const result={ok:[],failed:[]};
+  const total=list.length;
+
+  const report=(index,file,state,message="")=>{
+    const processed=Math.min(index,total);
+    const percent=total?Math.round((processed/total)*100):0;
+    onProgress({
+      index:processed,
+      total,
+      percent,
+      file:file?.name||"",
+      state,
+      ok:result.ok.length,
+      failed:result.failed.length,
+      message
+    });
+  };
+
+  report(0,null,"starting");
+
+  for(let i=0;i<list.length;i++){
+    const file=list[i];
+    report(i,file,"reading");
+
+    try{
+      const text=await file.text();
+      if(!text || !text.trim())throw new Error("empty JSON file");
+      report(i,file,"parsing");
+
+      let data;
+      try{
+        data=JSON.parse(text);
+      }catch{
+        throw new Error("invalid JSON");
+      }
+
+      const type=inferLibraryTypeFromJson(file.name,data);
+      let bibleImported=false;
+
+      if(type.startsWith("bible") || type==="bible"){
+        try{
+          const version=
+            /nkjv/i.test(file.name)?"NKJV":
+            /kjv/i.test(file.name)?"KJV":
+            /esv/i.test(file.name)?"ESV":
+            /nlt/i.test(file.name)?"NLT":
+            /nasb/i.test(file.name)?"NASB":
+            /amp/i.test(file.name)?"AMP":
+            "CUSTOM";
+
+          report(i,file,"indexing-bible");
+
+          const verses=flattenJsonBible(data);
+          const verseCount=Object.keys(verses).length;
+
+          if(verseCount){
+            const importedAt=new Date().toISOString();
+
+            await putBibleInDb(version,{
+              fileName:file.name,
+              importedAt,
+              verseCount,
+              verses
+            });
+
+            LOCAL_JSON_BIBLES[version]={
+              version,
+              fileName:file.name,
+              importedAt,
+              verseCount
+            };
+
+            saveLocalBibleMeta?.();
+            bibleImported=true;
+
+            const msg=`${file.name} → ${version} Bible (${verseCount.toLocaleString()} verses)`;
+            result.ok.push(msg);
+          }
+        }catch(err){
+          // If Bible parsing/storage fails, fall through to generic library storage.
+          bibleImported=false;
+        }
+      }
+
+      if(!bibleImported){
+        report(i,file,"storing-library");
+
+        const rec=await importScriptureDataset(
+          file,
+          type,
+          {
+            name:file.name.replace(/\.json$/i,""),
+            tags:[type,"mass-import","json"],
+            namespace:"holy-space/library"
+          }
+        );
+
+        result.ok.push(`${file.name} → ${rec.type||type}`);
+      }
+
+      report(i+1,file,"complete",result.ok.at(-1)||"complete");
+    }catch(e){
+      result.failed.push(`${file.name}: ${e.message}`);
+      report(i+1,file,"failed",e.message);
+    }
+
+    // Yield a frame so the browser can visibly repaint progress.
+    await new Promise(resolve=>requestAnimationFrame(()=>resolve()));
+  }
+
+  report(total,list.at(-1)||null,"finalizing");
+
+  try{
+    await pullScriptureResourcesIntoProject?.();
+  }catch{}
+
+  updateLocalBibleStatus?.();
+  updateLibraryCapacityStatus?.();
+  renderVirtualFiles?.();
+  renderEntityDatabase?.();
+
+  report(total,list.at(-1)||null,"done");
+  return result;
+}
+
+async function importScriptureDataset(file,type,options={}){
+  const content=await file.text();
+  const id=`resource-${type}-${Date.now().toString(36)}`;
+  const resource={
+    id,type,
+    name:options.name||file.name,
+    fileName:file.name,
+    tags:Array.isArray(options.tags)?options.tags:[],
+    namespace:options.namespace||"holy-space/library",
+    importedAt:new Date().toISOString(),
+    bytes:new Blob([content]).size,
+    content
+  };
+  await putScriptureResource(resource);
+  upsertVirtualFile?.(
+    `holy-space/bible/resources/${id}.json`,
+    JSON.stringify({id,type,name:file.name,importedAt:resource.importedAt,bytes:resource.bytes,storage:"IndexedDB"},null,2),
+    "scripture-resource-import"
+  );
+  return resource;
+}
+
+async function putBibleInDb(version,payload){
+  const db=await openBibleDb();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(BIBLE_IDB_STORE,"readwrite");
+    tx.objectStore(BIBLE_IDB_STORE).put({version,...payload});
+    tx.oncomplete=()=>resolve(true);
+    tx.onerror=()=>reject(tx.error||new Error("Bible IndexedDB write failed"));
+  });
+}
+
+async function getBibleFromDb(version){
+  const db=await openBibleDb();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(BIBLE_IDB_STORE,"readonly");
+    const req=tx.objectStore(BIBLE_IDB_STORE).get(version);
+    req.onsuccess=()=>resolve(req.result||null);
+    req.onerror=()=>reject(req.error||new Error("Bible IndexedDB read failed"));
+  });
+}
+
+async function deleteBibleFromDb(version){
+  const db=await openBibleDb();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(BIBLE_IDB_STORE,"readwrite");
+    tx.objectStore(BIBLE_IDB_STORE).delete(version);
+    tx.oncomplete=()=>resolve(true);
+    tx.onerror=()=>reject(tx.error||new Error("Bible IndexedDB delete failed"));
+  });
+}
+
+function saveLocalBibleMeta(){
+  const meta={};
+  Object.entries(LOCAL_JSON_BIBLES).forEach(([version,rec])=>{
+    meta[version]={
+      version,
+      fileName:rec.fileName||"",
+      importedAt:rec.importedAt||null,
+      verseCount:rec.verseCount||0
+    };
+  });
+  localStorage.setItem(LOCAL_BIBLE_META_KEY,JSON.stringify(meta));
+}
+
+async function localBibleVerse(reference,version){
+  const loaded=await getBibleFromDb(version);
+  if(!loaded?.verses)return null;
+  return loaded.verses[normalizeBibleReference(reference)]||null;
+}
+
+async function getLocalBibleVerses(version){
+  const loaded=await getBibleFromDb(version);
+  return loaded?.verses||null;
+}
+
+function updateLocalBibleStatus(){
+  const version=$("#bibleJsonVersion")?.value||BIBLE_RESOURCE_REGISTRY.selectedVersion||"KJV";
+  const bible=LOCAL_JSON_BIBLES[version];
+  const el=$("#bibleJsonStatus");
+  if(el)el.textContent=bible?`${version} // ${(bible.verseCount||0).toLocaleString()} VERSES`:"NONE";
+}
+
+
+
+async function importJsonBible(file,version){
+  const text=await file.text();
+  let data;
+  try{data=JSON.parse(text)}catch{throw new Error("Bible file is not valid JSON")}
+
+  const verses=flattenJsonBible(data);
+  const count=Object.keys(verses).length;
+  if(!count)throw new Error("No recognizable verse records found in JSON");
+
+  const importedAt=new Date().toISOString();
+
+  await putBibleInDb(version,{
+    fileName:file.name,
+    importedAt,
+    verseCount:count,
+    verses
+  });
+
+  LOCAL_JSON_BIBLES[version]={
+    version,
+    fileName:file.name,
+    importedAt,
+    verseCount:count
+  };
+  saveLocalBibleMeta();
+
+  if(BIBLE_RESOURCE_REGISTRY.versions[version]){
+    BIBLE_RESOURCE_REGISTRY.versions[version].status="local-json";
+    BIBLE_RESOURCE_REGISTRY.versions[version].fetchMode="local-json";
+  }
+
+  upsertVirtualFile?.(
+    `holy-space/bible/imports/${version}.json`,
+    JSON.stringify({
+      version,
+      fileName:file.name,
+      importedAt,
+      verseCount:count,
+      storage:"IndexedDB"
+    },null,2),
+    "bible-json-import"
+  );
+
+  updateLocalBibleStatus();
+  renderVirtualFiles?.();
+  renderEntityDatabase?.();
+  return count;
+}
+
 async function fetchBibleVerse(reference,version=BIBLE_RESOURCE_REGISTRY.selectedVersion){
   const rec=bibleResource(version);
+  const local=await localBibleVerse(reference,version);
+  if(local){
+    return {reference:local.reference||reference,text:local.text,version,source:"uploaded-json"};
+  }
   if(rec.fetchMode==="formula"){
     return generateNLKJVVerse(reference);
   }
@@ -6938,15 +8722,334 @@ Return JSON only:
   }
 }
 
+
+
+async function searchLocalBibleText(query,version=BIBLE_RESOURCE_REGISTRY.selectedVersion,limit=8){
+  const verses=await getLocalBibleVerses(version);
+  if(!verses)return [];
+  const q=String(query||"").toLowerCase().trim();
+  if(!q)return [];
+
+  const terms=q.split(/\s+/).filter(t=>t.length>2);
+  const rows=Object.values(verses);
+
+  return rows.map(v=>{
+    const hay=`${v.reference||""} ${v.text||""}`.toLowerCase();
+    let score=0;
+    for(const term of terms){
+      if(hay.includes(term))score+=1;
+    }
+    if(hay.includes(q))score+=4;
+    return {...v,score};
+  }).filter(v=>v.score>0)
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,limit);
+}
+
+function bibleReferenceFromQuestion(question){
+  const q=String(question||"");
+  const m=q.match(/\b([1-3]?\s?[A-Za-z]+(?:\s+[A-Za-z]+)*)\s+(\d+):(\d+(?:-\d+)?)\b/);
+  return m?`${m[1]} ${m[2]}:${m[3]}`.trim():null;
+}
+
+async function askBibleQuestion(question,version=BIBLE_RESOURCE_REGISTRY.selectedVersion){
+  BIBLE_RESOURCE_REGISTRY.selectedVersion=version;
+  const result=await scriptureResearchAnswer(question,{provider:"auto"});
+  return {
+    mode:"resource-research",
+    answer:result.answer,
+    sources:result.sources||[]
+  };
+}
+
 function bibleResourceSummary(){
   return Object.values(BIBLE_RESOURCE_REGISTRY.versions).map(v=>({
     id:v.id,name:v.name,status:v.status,publicDomain:v.publicDomain,note:v.note||""
   }));
 }
 
+
+const OPEN_SCRIPTURE_RESOURCES={
+  webBritish:{
+    id:"web-british",
+    name:"World English Bible British Edition",
+    kind:"bible_translation",
+    access:"remote/download",
+    license:"public domain",
+    endpoint:"https://ebible.org/engwebpb/",
+    enabled:true,
+    notes:"Public-domain British English edition of the World English Bible."
+  },
+  naviBibleProject:{
+    id:"navi-bible-project",
+    name:"Na'vi Bible Translation Project",
+    kind:"constructed_language_translation_project",
+    access:"project/reference",
+    license:"project/source specific",
+    endpoint:"",
+    enabled:false,
+    notes:"Separate Na'vi translation project slot. Do not identify it as a complete WEB-based Na'vi Bible unless a source dataset is explicitly loaded."
+  },
+  kjv:{
+    id:"kjv",
+    name:"King James Version",
+    kind:"bible_translation",
+    access:"remote-api",
+    license:"public domain",
+    endpoint:"https://bible-api.com/{reference}?translation=kjv",
+    enabled:true,
+    notes:"Primary free English fallback."
+  },
+  sefaria:{
+    id:"sefaria",
+    name:"Sefaria Texts API",
+    kind:"hebrew_jewish_library",
+    access:"remote-api",
+    license:"source/version specific; inspect returned version metadata",
+    endpoint:"https://www.sefaria.org/api/v3/texts/{reference}?version=primary&return_format=text_only",
+    enabled:true,
+    notes:"No API key required. Useful for Hebrew Bible/Jewish texts and cross-text research."
+  },
+  stepbible:{
+    id:"stepbible",
+    name:"STEPBible Data",
+    kind:"lexicon_and_tagged_text",
+    access:"open-dataset",
+    license:"CC BY 4.0",
+    endpoint:"https://github.com/STEPBible/STEPBible-Data",
+    enabled:true,
+    notes:"TBESG/TBESH Greek/Hebrew Extended Strong lexicons; tagged Greek/Hebrew data; LSJ-derived resources."
+  },
+  oshb:{
+    id:"oshb",
+    name:"Open Scriptures Hebrew Bible",
+    kind:"hebrew_original_morphology",
+    access:"open-dataset",
+    license:"CC BY 4.0 for lemma/morphology data",
+    endpoint:"https://github.com/openscriptures/morphhb",
+    enabled:true,
+    notes:"Hebrew Bible lemma and morphology; Strong-number compatible annotations."
+  },
+  morphgnt:{
+    id:"morphgnt",
+    name:"MorphGNT",
+    kind:"greek_nt_morphology",
+    access:"open-dataset",
+    license:"Morphology/lemmatization CC-BY-SA; underlying Greek text has its own terms",
+    endpoint:"https://github.com/morphgnt/sblgnt",
+    enabled:true,
+    notes:"Greek NT morphology and lemmas. Respect the underlying SBLGNT text terms."
+  },
+  septuagint:{
+    id:"septuagint",
+    name:"Septuagint / LXX",
+    kind:"greek_ot",
+    access:"local-or-configured-source",
+    license:"edition-specific",
+    endpoint:"",
+    enabled:true,
+    notes:"Load an authorized/public-domain LXX JSON/text dataset into Holy Space; do not fabricate an edition."
+  },
+  concordance:{
+    id:"concordance",
+    name:"Concordance + Strong's",
+    kind:"concordance",
+    access:"stepbible-or-local",
+    license:"Strong's numbering public domain; STEPBible lexicons CC BY 4.0",
+    endpoint:"",
+    enabled:true,
+    notes:"Search Greek/Hebrew Strong entries and tagged tokens when datasets are loaded."
+  },
+  songs:{
+    id:"songs",
+    name:"Biblical Songs / Psalms",
+    kind:"songs",
+    access:"bible-source",
+    license:"translation-specific",
+    endpoint:"",
+    enabled:true,
+    notes:"Psalms and biblical songs are queried through the selected Bible/original-language source."
+  },
+  testimonies:{
+    id:"testimonies",
+    name:"Testimonies / Witness Records",
+    kind:"testimony",
+    access:"holy-space-library",
+    license:"user/source specific",
+    endpoint:"",
+    enabled:true,
+    notes:"User-supplied testimonies and witness records stored in Holy Space; never presented as Scripture."
+  },
+  concordSelfHosted:{
+    id:"concord-self-hosted",
+    name:"Concord Self-Hosted Scripture API",
+    kind:"self_hosted_api",
+    access:"configurable",
+    license:"server dataset dependent",
+    endpoint:"http://127.0.0.1:8788",
+    enabled:false,
+    notes:"Optional local API endpoint for public-domain translations, original-language datasets, Strong's, cross references, and topical data."
+  }
+};
+
+const OPEN_SCRIPTURE_CACHE_KEY="thelight-open-scripture-cache-v1";
+let OPEN_SCRIPTURE_CACHE={};
+try{OPEN_SCRIPTURE_CACHE=JSON.parse(localStorage.getItem(OPEN_SCRIPTURE_CACHE_KEY)||"{}")}catch{OPEN_SCRIPTURE_CACHE={}}
+
+function saveOpenScriptureCache(){
+  try{localStorage.setItem(OPEN_SCRIPTURE_CACHE_KEY,JSON.stringify(OPEN_SCRIPTURE_CACHE))}catch{}
+}
+
+function scriptureCacheKey(provider,reference){
+  return `${provider}:${normalizeBibleReference(reference)}`;
+}
+
+async function fetchSefariaText(reference){
+  const key=scriptureCacheKey("sefaria",reference);
+  if(OPEN_SCRIPTURE_CACHE[key])return OPEN_SCRIPTURE_CACHE[key];
+
+  const url=OPEN_SCRIPTURE_RESOURCES.sefaria.endpoint
+    .replace("{reference}",encodeURIComponent(reference.replaceAll(" ","_")));
+  const res=await fetch(url,{headers:{Accept:"application/json"}});
+  if(!res.ok)throw new Error(`Sefaria fetch failed: ${res.status}`);
+  const data=await res.json();
+
+  const versions=Array.isArray(data.versions)?data.versions:[];
+  const chosen=versions[0]||{};
+  const raw=chosen.text ?? data.text ?? "";
+  const text=Array.isArray(raw)?raw.flat(Infinity).join(" "):String(raw);
+
+  const result={
+    reference:data.ref||reference,
+    text:text.replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim(),
+    provider:"Sefaria",
+    versionTitle:chosen.versionTitle||"",
+    language:chosen.language||""
+  };
+  OPEN_SCRIPTURE_CACHE[key]=result;
+  saveOpenScriptureCache();
+  return result;
+}
+
+async function fetchOpenScripture(reference,provider="auto"){
+  const version=BIBLE_RESOURCE_REGISTRY.selectedVersion||"KJV";
+
+  // Uploaded Bibles always win for their selected version.
+  try{
+    const local=await localBibleVerse(reference,version);
+    if(local)return {reference:local.reference||reference,text:local.text,provider:`local-${version}`,version};
+  }catch{}
+
+  if(provider==="sefaria"){
+    return fetchSefariaText(reference);
+  }
+
+  // Hebrew Bible / Tanakh can use Sefaria when explicitly requested or as research fallback.
+  if(provider==="auto" && /\b(genesis|exodus|leviticus|numbers|deuteronomy|joshua|judges|samuel|kings|chronicles|ezra|nehemiah|esther|job|psalm|proverbs|ecclesiastes|song|isaiah|jeremiah|lamentations|ezekiel|daniel|hosea|joel|amos|obadiah|jonah|micah|nahum|habakkuk|zephaniah|haggai|zechariah|malachi)\b/i.test(reference)){
+    try{return await fetchBibleVerse(reference,version)}catch{}
+    try{return await fetchSefariaText(reference)}catch{}
+  }
+
+  return fetchBibleVerse(reference,version);
+}
+
+function openResourcePromptContext(){
+  return Object.values(OPEN_SCRIPTURE_RESOURCES).filter(r=>r.enabled).map(r=>
+    `${r.name} [${r.kind}] access=${r.access}; license=${r.license}; ${r.notes}`
+  ).join("\n");
+}
+
+async function scriptureResearchAnswer(question,opts={}){
+  const q=String(question||"").trim();
+  if(!q)throw new Error("question required");
+
+  const reference=bibleReferenceFromQuestion?.(q)||null;
+  let direct=null;
+  if(reference){
+    try{direct=await fetchOpenScripture(reference,opts.provider||"auto")}catch{}
+  }
+
+  const selected=BIBLE_RESOURCE_REGISTRY.selectedVersion||"KJV";
+  let localHits=[];
+  try{
+    if(typeof searchAllLoadedBibles==="function"){
+      localHits=await searchAllLoadedBibles(q,18);
+    }else{
+      localHits=await searchLocalBibleText(q,selected,18);
+    }
+  }catch{}
+
+  let resourceHits=[];
+  try{
+    if(typeof searchScriptureResourceDb==="function"){
+      resourceHits=await searchScriptureResourceDb(q,10);
+    }
+  }catch{}
+
+  const context=[
+    direct?`${direct.reference}: ${direct.text} [${direct.provider||selected}]`:"",
+    ...localHits.map(v=>`${v.reference}: ${v.text} [${v.version||selected}]`),
+    ...resourceHits.map(r=>`[${r.type}] ${r.name}: ${r.excerpt}`)
+  ].filter(Boolean).join("\n");
+
+  if(!context.trim()){
+    return {
+      answer:"No source text was retrieved for that question. Load/sync a Bible corpus for full-text search or include a specific reference. When Greek/Hebrew lexicon, morphology, LXX, concordance, or commentary resources are loaded, the answer can include original-meaning and present-day lenses without guessing.",
+      sources:[]
+    };
+  }
+
+  const prompt=`Answer this Bible research question from the supplied source text only.
+
+QUESTION:
+${q}
+
+SOURCE TEXT:
+${context}
+
+AVAILABLE RESOURCE REGISTRY:
+${openResourcePromptContext()}
+
+Rules:
+- Never invent a verse, lexicon entry, manuscript reading, or translation.
+- Correct obvious citation mistakes if the supplied source proves them.
+- Distinguish Scripture from commentary, testimony, lexicon, Septuagint/LXX, and generated NLKJV paraphrase.
+- Give references for claims.
+- If Greek/Hebrew lexical or morphology data was not actually retrieved or loaded, say "original-language data not retrieved" rather than guessing.
+- When source material supports it, answer through five lenses:
+  1. SOURCE TEXT — what the retrieved passage actually says.
+  2. ORIGINAL MEANING / INTENTION — literary, historical, and original-language sense supported by loaded sources.
+  3. WHOLE-BIBLE LENS — relevant cross-references supported by retrieved material.
+  4. MEANING NOW — the principle in present-day language.
+  5. APPLICATION — practical effect without replacing the source.
+- Do not soften a clear command into a vague suggestion.
+- Do not confuse neighboring verses, commandments, or references.
+- Be concise but complete.`;
+
+  try{
+    const answer=await ollamaAsk(prompt);
+    return {
+      answer:String(answer).trim(),
+      sources:[
+        ...(direct?[direct.reference]:[]),
+        ...localHits.map(v=>v.reference)
+      ]
+    };
+  }catch{
+    return {
+      answer:context,
+      sources:[
+        ...(direct?[direct.reference]:[]),
+        ...localHits.map(v=>v.reference)
+      ]
+    };
+  }
+}
+
 const REBORN_TOPOLOGY={
   nodes:[
-    {id:"jesus",name:"Jesus",role:"AXIOM center / scepter holder",kind:"center",gender:"male"},
+    {id:"god-the-father",name:"God the Father",kind:"spiritual",role:"Father",nestedIn:"jesus",joinedTo:"jesus",scriptural:true},
+      {id:"jesus",name:"Jesus",role:"AXIOM center / scepter holder",kind:"center",gender:"male",nestedSpiritualEntities:["god-the-father","holy-spirit"]},
     {id:"king-david",name:"King David",role:"co-origin beside Jesus",kind:"center",gender:"male",species:"human"},
     {id:"adam",name:"Adam",role:"created branch",kind:"human",gender:"male",species:"human"},
     {id:"eve",name:"Eve",role:"from Adam / mother branch",kind:"human",gender:"female",species:"human",birthSpecies:"human"},
@@ -6959,6 +9062,7 @@ const REBORN_TOPOLOGY={
     {id:"klus",name:"Klus",role:"Na\'vi child of Ava",kind:"navi",gender:"male",species:"Na\'vi"}
   ],
   edges:[
+      {from:"god-the-father",to:"jesus",kind:"nested-spiritual-join"},
     {a:"jesus",b:"adam",type:"origin"},
     {a:"king-david",b:"adam",type:"origin"},
     {a:"adam",b:"eve",type:"family"},
@@ -7766,6 +9870,76 @@ const rebornState={
   pandora:{zoom:1,breath:.06,time:0,rate:1,paused:false,yaw:0,pitch:18*Math.PI/180,growthRate:1,light:1,dayLength:90,roll:0,fov:65,depth:1,cameraZ:0,perspective:1400,panX:0,panY:0,hidden:new Set(),back:new Set(),nextAutoSpawn:4}
 };
 
+
+
+function treeSeedFromId(id){
+  let h=2166136261;
+  const str=String(id||"tree");
+  for(let i=0;i<str.length;i++){
+    h^=str.charCodeAt(i);
+    h=Math.imul(h,16777619);
+  }
+  return (h>>>0)/4294967295;
+}
+
+function isTreeLikeNode(node){
+  if(!node)return false;
+  const id=String(node.id||"").toLowerCase();
+  const name=String(node.name||"").toLowerCase();
+  const kind=String(node.kind||node.type||"").toLowerCase();
+  const shape=String(node.shape||"").toLowerCase();
+  return (
+    id.includes("tree") ||
+    name.includes("tree") ||
+    kind.includes("tree") ||
+    shape==="tree" ||
+    shape==="branch"
+  );
+}
+
+function treeWindForNode(node){
+  if(!isTreeLikeNode(node)){
+    return {x:0,y:0,rotation:0,scale:1};
+  }
+
+  const seed=treeSeedFromId(node.id||node.name);
+  const t=performance.now()/1000;
+  const rate=(typeof rebornState!=="undefined" ? Number(rebornState.pandora?.rate||1) : 1);
+  const speed=Math.max(.15,rate);
+
+  // Layer several slow waves so the breeze feels irregular rather than mechanical.
+  const a=Math.sin(t*(0.42+seed*.21)*speed + seed*11.7);
+  const b=Math.sin(t*(0.17+seed*.11)*speed + seed*29.3);
+  const c=Math.sin(t*(0.71+seed*.16)*speed + seed*47.1);
+  const gust=(a*.55+b*.30+c*.15);
+
+  const amplitude=5 + seed*11;
+  const x=gust*amplitude;
+  const y=Math.sin(t*(0.22+seed*.1)*speed+seed*19.1)*(1.5+seed*3);
+
+  // Tiny scale pulse for ordinary trees; sacred trees retain their stronger breath.
+  const ordinaryBreath=1+Math.sin(t*(0.28+seed*.08)*speed+seed*31.4)*(0.008+seed*.012);
+
+  return {
+    x,
+    y,
+    rotation:gust*(0.015+seed*.018),
+    scale:ordinaryBreath
+  };
+}
+
+function treeBreathPhase(){
+  const rate=(typeof rebornState!=="undefined" ? Number(rebornState.pandora?.rate||1) : 1);
+  const t=performance.now()/1000;
+  const phase=(Math.sin(t*0.55*Math.max(.15,rate))+1)/2;
+  return {
+    phase,
+    scale:0.965 + phase*0.07,
+    glow:0.18 + phase*0.22,
+    sway:(phase-.5)*5
+  };
+}
+
 function rebornLayout(w,h){
   const cx=w*.55, cy=h*.48;
   const sx=Math.min(w/1200,h/760);
@@ -7886,6 +10060,19 @@ function rebornLayout(w,h){
     layout["angels"]={x:j.x-34*sx,y:j.y-34*sx,z:(j.z||0)+6};
   }
 
+
+  // Heaven council arcs high above the main living topology.
+  layout["heaven-council"]={x:cx,y:cy-520*sx,z:-90};
+  const apostleIds=HEAVEN_COUNCIL.apostles.map(n=>n.id);
+  const israelIds=HEAVEN_COUNCIL.israel.map(n=>n.id);
+  apostleIds.forEach((id,i)=>{
+    const a=Math.PI+(i/(apostleIds.length-1))*Math.PI;
+    layout[id]={x:cx+Math.cos(a)*390*sx,y:cy-450*sx+Math.sin(a)*100*sx,z:-80+i*2};
+  });
+  israelIds.forEach((id,i)=>{
+    const a=Math.PI+(i/(israelIds.length-1))*Math.PI;
+    layout[id]={x:cx+Math.cos(a)*315*sx,y:cy-385*sx+Math.sin(a)*85*sx,z:-60+i*2};
+  });
   return layout;
 }
 
@@ -8337,6 +10524,50 @@ function renderLakeResidents(){
   });
 }
 
+
+
+
+function sacredTreeDirectionalBreath(node,p,layout){
+  if(!node||!p)return p;
+  const id=String(node.id||"");
+  if(id!=="tree-of-life" && id!=="tree-of-souls")return p;
+
+  const otherId=id==="tree-of-life"?"tree-of-souls":"tree-of-life";
+  const other=layout?.[otherId];
+  if(!other)return p;
+
+  const b=treeBreathPhase();
+  // phase 1 = inhale: trees move gently toward one another.
+  // phase 0 = exhale: trees move gently away from one another.
+  const signed=(b.phase-.5)*2;
+  const dx=other.x-p.x, dy=other.y-p.y;
+  const mag=Math.hypot(dx,dy)||1;
+  const ux=dx/mag, uy=dy/mag;
+  const travel=18*signed;
+
+  return {...p,x:p.x+ux*travel,y:p.y+uy*travel};
+}
+
+function sacredTreeBreathScale(node){
+  if(!node)return 1;
+  const id=String(node.id||"");
+  const kind=String(node.kind||node.type||"");
+  const sacred=id==="tree-of-life" || id==="tree-of-souls" ||
+    /tree[_ -]?of[_ -]?(life|souls)/i.test(id) ||
+    /tree[_ -]?of[_ -]?(life|souls)/i.test(node.name||"");
+  if(!sacred)return 1;
+  return treeBreathPhase().scale;
+}
+
+function sacredTreeBreathAlpha(node){
+  if(!node)return 0;
+  const id=String(node.id||"");
+  const sacred=id==="tree-of-life" || id==="tree-of-souls" ||
+    /tree[_ -]?of[_ -]?(life|souls)/i.test(id) ||
+    /tree[_ -]?of[_ -]?(life|souls)/i.test(node.name||"");
+  return sacred ? treeBreathPhase().glow : 0;
+}
+
 function rebornDraw(canvas,state,kind){
   const ctx=canvas.getContext("2d");
   const {dpr,w,h}=rebornCanvasSize(canvas);
@@ -8380,6 +10611,32 @@ function rebornDraw(canvas,state,kind){
   ctx.globalAlpha=Math.max(.25,Math.min(1,state.light||1));
 
   if(kind==="pandora")rebornDrawLakeOfFire(ctx,P,state,scale);
+
+  
+  if(kind==="pandora"){
+    const lifeNode=REBORN_TOPOLOGY.nodes.find(n=>n.id==="tree-of-life");
+    const soulsNode=REBORN_TOPOLOGY.nodes.find(n=>n.id==="tree-of-souls");
+    if(P["tree-of-life"])P["tree-of-life"]=sacredTreeDirectionalBreath(lifeNode,P["tree-of-life"],P);
+    if(P["tree-of-souls"])P["tree-of-souls"]=sacredTreeDirectionalBreath(soulsNode,P["tree-of-souls"],P);
+  }
+
+  
+  if(kind==="pandora"){
+    for(const n of REBORN_TOPOLOGY.nodes||[]){
+      if(!isTreeLikeNode(n))continue;
+      const p=P[n.id];
+      if(!p)continue;
+      const wind=treeWindForNode(n);
+      const sacred=sacredTreeBreathScale?.(n)||1;
+      P[n.id]={
+        ...p,
+        x:p.x+wind.x,
+        y:p.y+wind.y,
+        treeWind:wind,
+        treeScale:wind.scale*sacred
+      };
+    }
+  }
 
   REBORN_TOPOLOGY.edges.filter(e=>e.type==="family").forEach(e=>{
     if(rebornHidden(state,e.a)||rebornHidden(state,e.b))return;
@@ -8473,6 +10730,7 @@ function rebornDraw(canvas,state,kind){
 
   // Back-layer canonical entities first.
   REBORN_TOPOLOGY.nodes.forEach(n=>{
+    const sacredBreath=sacredTreeBreathScale(n);
     if(!rebornTopologyVisible(n.id))return;
     if(!rebornHidden(state,n.id) && rebornIsBack(state,n.id)){
       ctx.save();ctx.globalAlpha*=.42;
@@ -9192,6 +11450,7 @@ let last=performance.now();
 ensureScripturalBloodlineBase();
 ensureAutonomousSacredTrees();
 ensureLakeOfFireTopology();
+ensureHeavenCouncilTopology();
 initRebornPages();
 renderDailyReflectionFeed();
 setTimeout(()=>enqueueDailyBibleReflections(currentReflectionDay()),700);
@@ -9279,7 +11538,7 @@ const WORKFLOW_PROJECT_MANAGER={
 function workflowProjectManagerSnapshot(){
   const latestRun=(typeof workflowRuns!=="undefined" && workflowRuns.length)?workflowRuns.at(-1):null;
   const snapshot={
-    format:"thelight-pm-snapshot-v2",
+    format:"thelight-pm-snapshot-v3",
     id:"snapshot-"+Date.now().toString(36),
     capturedAt:new Date().toISOString(),
     manager:WORKFLOW_PROJECT_MANAGER,
@@ -9301,6 +11560,15 @@ function workflowProjectManagerSnapshot(){
       path,{path,content:String(rec?.content??""),updatedAt:rec?.updatedAt||null,source:rec?.source||""}
     ])),
     chats:(typeof persistentChats!=="undefined"?persistentChats:[]).map(c=>({...c,messages:[...(c.messages||[])]})),
+    index:{
+      artifacts:(typeof artifactDB!=="undefined"?artifactDB:[]).map(a=>JSON.parse(JSON.stringify(a))),
+      itemCreatorAttachments:(typeof itemCreatorAttachments!=="undefined"?itemCreatorAttachments:[]).map(a=>JSON.parse(JSON.stringify(a)))
+    },
+    environment:{
+      axiomShipEntities:(typeof axiomShipEntities!=="undefined"?axiomShipEntities:[]).map(x=>JSON.parse(JSON.stringify(x))),
+      replicatedPayloads:(typeof replicatedPayloads!=="undefined"?replicatedPayloads:[]).map(x=>JSON.parse(JSON.stringify(x))),
+      offspringReflections:(typeof offspringReflections!=="undefined"?offspringReflections:[]).map(x=>JSON.parse(JSON.stringify(x)))
+    },
     bloodline:{
       master:typeof rebornMultiplyGateOpen!=="undefined"?rebornMultiplyGateOpen:false,
       mothers:typeof rebornMotherBloodline!=="undefined"?{...rebornMotherBloodline}:null,
@@ -9438,6 +11706,7 @@ function renderPersistentChatStack(){
   open.forEach(session=>{
     const card=document.createElement("div");
     card.className="chatStackCard";
+    card.dataset.entityId=session.entityId||"";
 
     const head=document.createElement("div");
     head.className="chatStackHead";
@@ -9483,6 +11752,13 @@ function renderPersistentChatStack(){
 
     const send=document.createElement("button");
     send.className="action";send.textContent="SEND";send.style.margin="0";
+    input.addEventListener("keydown",e=>{
+      if(e.key==="Enter" && !e.shiftKey && !e.ctrlKey && !e.metaKey && !e.altKey && !e.isComposing){
+        e.preventDefault();
+        send.click();
+      }
+    });
+
     send.addEventListener("click",async()=>{
       const q=input.value.trim();if(!q)return;
       input.value="";
@@ -9491,10 +11767,25 @@ function renderPersistentChatStack(){
 
       const rec=collectEntityDatabase().find(r=>r.id===session.entityId)||
         {id:session.entityId,name:session.entityName,dbType:session.entityType};
-      const prompt=`You are ${session.entityName}, an entity inside the fictional The Light simulation.
+      const scriptureContext=await buildSharedScriptureContext(q,{maxChars:10000});
+      const prompt=`You are ${session.entityName}, an entity inside the fictional The Light environment.
 Answer in first person. Do not claim literal consciousness or supernatural certainty.
+You may reference the simulation's open Scripture resource registry when Bible research is requested.
+Never fabricate source text or lexical claims.
 ENTITY RECORD:
 ${JSON.stringify(rec)}
+
+OPEN SCRIPTURE RESOURCES AVAILABLE TO THIS ENTITY:
+${openResourcePromptContext()}
+
+RELEVANT SOURCE MATERIAL PULLED FROM THE SHARED RESOURCE DATABASE:
+${scriptureContext}
+
+If the user asks a Bible/source question:
+- use retrieved/local source text when available;
+- never invent verse wording, Greek/Hebrew meanings, or manuscript claims;
+- distinguish Scripture, lexicon, commentary, testimony, Septuagint, and NLKJV synthesis.
+
 CHAT HISTORY:
 ${JSON.stringify((session.messages||[]).slice(-18))}
 USER:
@@ -9676,6 +11967,7 @@ function renderLoadedPmSnapshot(){
     `CAPTURED :: ${loadedPmSnapshot.capturedAt||"unknown"}`,
     `FILES :: ${fileCount}`,
     `CHATS :: ${chatCount}`,
+    `INDEX ITEMS :: ${(loadedPmSnapshot.index?.artifacts||[]).length}`,
     `LATEST RUN :: ${run?.id||"none"}`,
     `MISSION :: ${loadedPmSnapshot.workflow?.mission||""}`
   ].forEach(text=>{
@@ -9737,6 +12029,34 @@ function restorePmSnapshot(snapshot){
       messages:[...(c.messages||[])]
     }));
     savePersistentChats();
+  }
+
+  // Restore INDEX / manually created books, websites, media, documents, datasets, etc.
+  if(Array.isArray(snapshot.index?.artifacts) && typeof artifactDB!=="undefined"){
+    artifactDB=snapshot.index.artifacts.map(a=>JSON.parse(JSON.stringify(a)));
+    saveDB?.();
+  }
+
+  if(Array.isArray(snapshot.index?.itemCreatorAttachments) && typeof itemCreatorAttachments!=="undefined"){
+    itemCreatorAttachments=snapshot.index.itemCreatorAttachments.map(a=>JSON.parse(JSON.stringify(a)));
+    renderItemAttachments?.();
+  }
+
+  // Restore environment child/system state captured by v3 snapshots.
+  if(Array.isArray(snapshot.environment?.axiomShipEntities) && typeof axiomShipEntities!=="undefined"){
+    axiomShipEntities=snapshot.environment.axiomShipEntities.map(x=>JSON.parse(JSON.stringify(x)));
+    saveAxiomShip?.();
+    renderAxiomShipSystems?.();
+  }
+
+  if(Array.isArray(snapshot.environment?.replicatedPayloads) && typeof replicatedPayloads!=="undefined"){
+    replicatedPayloads=snapshot.environment.replicatedPayloads.map(x=>JSON.parse(JSON.stringify(x)));
+    try{safeStore(REPLICAKEY,replicatedPayloads)}catch{}
+  }
+
+  if(Array.isArray(snapshot.environment?.offspringReflections) && typeof offspringReflections!=="undefined"){
+    offspringReflections=snapshot.environment.offspringReflections.map(x=>JSON.parse(JSON.stringify(x)));
+    saveOffspringReflections?.();
   }
 
   // Restore PM state.
@@ -9861,6 +12181,1221 @@ $("#bibleResourceVersion")?.addEventListener("change",e=>{
   try{localStorage.setItem("thelight-bible-version",e.target.value)}catch{}
 });
 
+
+
+
+
+
+
+
+setTimeout(updateLocalBibleStatus,100);
+
+const BIBLE_QA_KEY="thelight-bible-qa-v1";
+let BIBLE_QA_HISTORY=[];
+try{BIBLE_QA_HISTORY=JSON.parse(localStorage.getItem(BIBLE_QA_KEY)||"[]")}catch{BIBLE_QA_HISTORY=[]}
+
+function saveBibleQa(){
+  BIBLE_QA_HISTORY=BIBLE_QA_HISTORY.slice(-200);
+  safeStore(BIBLE_QA_KEY,BIBLE_QA_HISTORY);
+}
+
+function renderBibleQa(){
+  const box=$("#bibleQaLog");if(!box)return;
+  box.innerHTML="";
+  BIBLE_QA_HISTORY.slice(-50).forEach(row=>{
+    const q=document.createElement("div");
+    q.textContent=`YOU :: ${row.question}`;
+    box.appendChild(q);
+
+    const a=document.createElement("div");
+    a.textContent=`BIBLE [${row.version}] :: ${row.answer}`;
+    box.appendChild(a);
+
+    if(row.sources?.length){
+      const src=document.createElement("div");
+      src.textContent=`SOURCES :: ${row.sources.join(", ")}`;
+      src.style.color="var(--muted)";
+      box.appendChild(src);
+    }
+  });
+  box.scrollTop=box.scrollHeight;
+}
+
+
+$("#bibleAskQuestion")?.addEventListener("click",async()=>{
+  const input=$("#bibleQuestionInput");
+  const q=input?.value.trim();
+  if(!q)return;
+
+  const version=$("#bibleResourceVersion")?.value||BIBLE_RESOURCE_REGISTRY.selectedVersion||"KJV";
+  BIBLE_RESOURCE_REGISTRY.selectedVersion=version;
+
+  const btn=$("#bibleAskQuestion");
+  if(btn)btn.disabled=true;
+  bibleStatus(`ASK BIBLE :: ${version} :: ${q}`);
+
+  try{
+    const result=await askBibleQuestion(q,version);
+    BIBLE_QA_HISTORY.push({
+      id:"bqa-"+Date.now().toString(36),
+      question:q,
+      version,
+      answer:result.answer,
+      sources:result.sources||[],
+      mode:result.mode,
+      at:Date.now()
+    });
+    saveBibleQa();
+    renderBibleQa();
+    input.value="";
+  }catch(e){
+    bibleStatus(`BIBLE QA ERROR :: ${e.message}`);
+  }finally{
+    if(btn)btn.disabled=false;
+  }
+});
+
+$("#bibleQuestionInput")?.addEventListener("keydown",e=>{
+  if(e.key==="Enter" && (e.ctrlKey||e.metaKey)){
+    e.preventDefault();
+    $("#bibleAskQuestion")?.click();
+  }
+});
+
+$("#bibleClearQa")?.addEventListener("click",()=>{
+  BIBLE_QA_HISTORY=[];
+  saveBibleQa();
+  renderBibleQa();
+});
+
+setTimeout(renderBibleQa,100);
+
+
+function bindEnterSendChats(){
+  document.querySelectorAll("textarea,input[type='text']").forEach(input=>{
+    if(input.dataset.enterSendBound==="1")return;
+
+    const id=(input.id||"").toLowerCase();
+    const placeholder=(input.getAttribute("placeholder")||"").toLowerCase();
+    const chatLike=
+      id.includes("chat") || id.includes("question") || id.includes("message") ||
+      id.includes("composer") || id.includes("prompt") || id==="axiominput" ||
+      placeholder.includes("message") || placeholder.includes("question") ||
+      placeholder.includes("ask ");
+
+    if(!chatLike)return;
+
+    input.dataset.enterSendBound="1";
+    input.addEventListener("keydown",e=>{
+      if(e.key!=="Enter" || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey || e.isComposing)return;
+
+      const direct={
+        bibleQuestionInput:"bibleAskQuestion",
+        axiomInput:"axiomSend",
+        entityDbChatInput:"entityDbChatSend",
+        objectQuestion:"askObject",
+        jesusQuestion:"askJesus"
+      };
+      let send=direct[input.id]?$("#"+direct[input.id]):null;
+
+      if(!send){
+        const scope=input.closest(".chatStackBody,.rebornChat,.console,.card,.entityChat,.modal,.panelPage,.inspector")||input.parentElement;
+        const buttons=[...(scope?.querySelectorAll("button")||[])];
+        send=buttons.find(b=>{
+          const text=(b.textContent||"").trim().toLowerCase();
+          const bid=(b.id||"").toLowerCase();
+          return !b.disabled && (
+            text==="send" || text==="ask" || text==="enter" ||
+            text.includes("send") || text.startsWith("ask ") ||
+            bid.includes("send") || bid.startsWith("ask")
+          );
+        });
+      }
+
+      if(send){
+        e.preventDefault();
+        send.click();
+      }
+    });
+  });
+}
+
+// Dynamic persistent chat cards are created after initial load.
+bindEnterSendChats();
+const enterSendObserver=new MutationObserver(()=>bindEnterSendChats());
+enterSendObserver.observe(document.body,{childList:true,subtree:true});
+
+// Bible Q&A intentionally remains multiline/plain-Enter.
+// Ctrl/Cmd+Enter continues to submit it through its existing handler.
+
+
+try{
+  // Old builds stored full Bibles here and could exceed localStorage quota.
+  localStorage.removeItem("thelight-local-json-bibles");
+}catch{}
+
+
+function renderOpenScriptureResources(){
+  const box=$("#openScriptureResourceList");if(!box)return;
+  box.innerHTML="";
+  Object.values(OPEN_SCRIPTURE_RESOURCES).forEach(r=>{
+    const d=document.createElement("div");
+    d.textContent=`${r.name} // ${r.kind} // ${r.access} // ${r.license}`;
+    box.appendChild(d);
+  });
+}
+
+
+
+$("#concordApiBase")?.addEventListener("change",e=>{
+  OPEN_SCRIPTURE_RESOURCES.concordSelfHosted.endpoint=e.target.value.trim();
+  OPEN_SCRIPTURE_RESOURCES.concordSelfHosted.enabled=!!e.target.value.trim();
+  renderOpenScriptureResources();
+});
+
+setTimeout(()=>{
+  renderOpenScriptureResources();
+  try{ensureHeavenCouncilTopology()}catch(e){console.error("HEAVEN COUNCIL INIT",e)}
+},100);
+
+
+$("#pullScriptureResourcesIntoProject")?.addEventListener("click",async()=>{
+  const btn=$("#pullScriptureResourcesIntoProject");
+  if(btn)btn.disabled=true;
+  try{
+    const manifest=await pullScriptureResourcesIntoProject();
+    bibleStatus(`PROJECT RESOURCE PACK READY :: ${manifest.localBibles.length} Bible(s), ${manifest.indexedDbResources.length} dataset(s)`);
+  }catch(e){
+    bibleStatus(`RESOURCE PACK ERROR :: ${e.message}`);
+  }finally{
+    if(btn)btn.disabled=false;
+  }
+});
+
+$("#refreshProjectResourcePack")?.addEventListener("click",async()=>{
+  try{
+    await pullScriptureResourcesIntoProject();
+    bibleStatus("PROJECT RESOURCE PACK REFRESHED");
+  }catch(e){
+    bibleStatus(`RESOURCE PACK ERROR :: ${e.message}`);
+  }
+});
+
+// If a resource pack already exists, update the visible status on load.
+setTimeout(async()=>{
+  try{
+    const manifest=await buildProjectResourceManifest();
+    const packed=virtualFiles?.["holy-space/bible/RESOURCE_PACK.json"];
+    const status=$("#projectResourceBridgeStatus");
+    if(status){
+      status.textContent=packed
+        ? `SYNCED // ${manifest.localBibles.length} BIBLES // ${manifest.indexedDbResources.length} DATASETS`
+        : `AVAILABLE // ${manifest.localBibles.length} BIBLES // ${manifest.indexedDbResources.length} DATASETS`;
+    }
+  }catch{}
+},250);
+
+
+async function updateLibraryCapacityStatus(){
+  try{
+    const resources=await getAllScriptureResources();
+    const bytes=resources.reduce((n,r)=>n+Number(r.bytes||0),0);
+    const bibles=Object.keys(LOCAL_JSON_BIBLES||{}).length;
+    const el=$("#libraryCapacityStatus");
+    if(el)el.textContent=`${resources.length} LIBRARIES // ${bibles} BIBLES // ${(bytes/1024/1024).toFixed(1)} MB // EXPANDABLE`;
+  }catch{}
+}
+$("#scriptureDatasetUpload")?.addEventListener("change",()=>setTimeout(updateLibraryCapacityStatus,350));
+setTimeout(updateLibraryCapacityStatus,300);
+
+
+$("#axiomShipSpawn")?.addEventListener("click",()=>{
+  const type=$("#axiomShipSpawnType")?.value||"room";
+  const name=$("#axiomShipSpawnName")?.value||"";
+  const parent=$("#axiomShipParent")?.value||"axiom-ship";
+  spawnAxiomShipChild(type,name,parent);
+  if($("#axiomShipSpawnName"))$("#axiomShipSpawnName").value="";
+  renderEntityDatabase?.();
+});
+
+document.querySelector("[data-pandora-live-toggle]")?.addEventListener("click",()=>{
+  const hud=$("#pandoraLiveHudDisclosure");
+  if(!hud)return;
+  hud.classList.toggle("collapsed-live-hud");
+  const btn=hud.querySelector(".compactChevron");
+  if(btn)btn.textContent=hud.classList.contains("collapsed-live-hud")?"⌄":"⌃";
+});
+
+setTimeout(()=>{
+  renderAxiomShipSystems();
+  axiomAutoStandDown();
+  bindEnterSendChats();
+},120);
+
+
+function entityBasicInfo(entity){
+  if(!entity)return null;
+  const rec=entity.record||entity;
+  const parts=[];
+  const name=rec.name||rec.id||"Entity";
+  const kind=rec.kind||rec.type||rec.dbType||"entity";
+  if(kind)parts.push(`kind: ${kind}`);
+  if(rec.species)parts.push(`species: ${rec.species}`);
+  if(rec.role)parts.push(`role: ${rec.role}`);
+  if(rec.nestedIn)parts.push(`nested in: ${rec.nestedIn}`);
+  if(rec.joinedTo)parts.push(`joined to: ${rec.joinedTo}`);
+  if(Array.isArray(rec.nestedSpiritualEntities)&&rec.nestedSpiritualEntities.length)parts.push(`nested spirits: ${rec.nestedSpiritualEntities.join(", ")}`);
+  if(rec.status)parts.push(`status: ${rec.status}`);
+  const parent=rec.parentId||rec.birthMotherId||rec.containerId||null;
+  if(parent)parts.push(`parent/container: ${parent}`);
+  return {name,parts};
+}
+
+function showEntityHover(entity,clientX,clientY){
+  const tip=$("#entityHoverTip");
+  if(!tip)return;
+  const info=entityBasicInfo(entity);
+  if(!info){tip.style.display="none";return}
+  tip.innerHTML="";
+  const title=document.createElement("b");
+  title.textContent=info.name;
+  tip.appendChild(title);
+  if(info.parts.length){
+    const meta=document.createElement("div");
+    meta.className="muted";
+    meta.textContent=info.parts.join(" // ");
+    tip.appendChild(meta);
+  }
+  tip.style.display="block";
+  const pad=14;
+  const rect=tip.getBoundingClientRect();
+  let x=clientX+pad,y=clientY+pad;
+  if(x+rect.width>window.innerWidth-8)x=clientX-rect.width-pad;
+  if(y+rect.height>window.innerHeight-8)y=clientY-rect.height-pad;
+  tip.style.left=Math.max(8,x)+"px";
+  tip.style.top=Math.max(8,y)+"px";
+}
+
+function hideEntityHover(){
+  const tip=$("#entityHoverTip");
+  if(tip)tip.style.display="none";
+}
+
+function hoverEntityAtCanvasEvent(canvas,event,state){
+  const rect=canvas.getBoundingClientRect();
+  const x=event.clientX-rect.left;
+  const y=event.clientY-rect.top;
+
+  if(typeof rebornPick==="function"){
+    try{
+      const hit=rebornPick(canvas,state,x,y);
+      if(hit){
+        if(hit.node)return hit.node;
+        if(hit.entity)return hit.entity;
+        return hit;
+      }
+    }catch{}
+  }
+
+  if(typeof rebornLayout==="function" && typeof REBORN_TOPOLOGY!=="undefined"){
+    try{
+      const layout=rebornLayout(rect.width,rect.height);
+      let best=null,bestD=30;
+      for(const n of REBORN_TOPOLOGY.nodes||[]){
+        const p=layout[n.id];
+        if(!p)continue;
+        const d=Math.hypot(p.x-x,p.y-y);
+        if(d<bestD){best=n;bestD=d}
+      }
+      if(best)return best;
+    }catch{}
+  }
+  return null;
+}
+
+function bindCanvasEntityHover(canvasId,stateGetter){
+  const canvas=$("#"+canvasId);
+  if(!canvas || canvas.dataset.hoverInfoBound==="1")return;
+  canvas.dataset.hoverInfoBound="1";
+  canvas.addEventListener("mousemove",e=>{
+    const state=typeof stateGetter==="function"?stateGetter():stateGetter;
+    const entity=hoverEntityAtCanvasEvent(canvas,e,state);
+    if(entity)showEntityHover(entity,e.clientX,e.clientY);
+    else hideEntityHover();
+  });
+  canvas.addEventListener("mouseleave",hideEntityHover);
+}
+
+setTimeout(()=>{
+  bindCanvasEntityHover("pandoraRebornCanvas",()=>rebornState?.pandora);
+  bindCanvasEntityHover("treeRebornCanvas",()=>rebornState?.tree);
+},120);
+
+document.addEventListener("mouseover",e=>{
+  const el=e.target.closest?.("[data-entity-id],[data-id]");
+  if(!el)return;
+  const id=el.dataset.entityId||el.dataset.id;
+  if(!id)return;
+  let entity=null;
+  try{
+    entity=
+      (typeof REBORN_TOPOLOGY!=="undefined" ? REBORN_TOPOLOGY.nodes.find(n=>n.id===id) : null) ||
+      (typeof axiomShipEntities!=="undefined" ? axiomShipEntities.find(n=>n.id===id) : null) ||
+      (typeof collectEntityDatabase==="function" ? collectEntityDatabase().find(n=>n.id===id) : null);
+  }catch{}
+  if(entity)showEntityHover(entity,e.clientX,e.clientY);
+});
+
+document.addEventListener("mouseout",e=>{
+  if(e.target.closest?.("[data-entity-id],[data-id]"))hideEntityHover();
+});
+
+
+let massLibraryImportBusy=false;
+const massLibrarySeenFiles=new Set();
+
+$("#massLibraryUpload")?.addEventListener("change",async e=>{
+  if(massLibraryImportBusy){
+    e.target.value="";
+    return;
+  }
+
+  const raw=[...(e.target.files||[])];
+  const files=raw.filter(file=>{
+    if(!file || !file.name || file.size<=0)return false;
+    if(!/\.json$/i.test(file.name) && file.type!=="application/json")return false;
+    const key=`${file.name}:${file.size}:${file.lastModified}`;
+    if(massLibrarySeenFiles.has(key))return false;
+    massLibrarySeenFiles.add(key);
+    return true;
+  });
+
+  if(!files.length){
+    const status=$("#massLibraryImportStatus");
+    if(status)status.textContent="NO NEW JSON FILES";
+    e.target.value="";
+    return;
+  }
+
+  massLibraryImportBusy=true;
+
+  const status=$("#massLibraryImportStatus");
+  const log=$("#massLibraryImportLog");
+  const bar=$("#massLibraryProgressBar");
+  const percent=$("#massLibraryPercent");
+  const fileProgress=$("#massLibraryFileProgress");
+  const okCount=$("#massLibraryOkCount");
+  const failCount=$("#massLibraryFailCount");
+  const currentFile=$("#massLibraryCurrentFile");
+
+  if(log)log.innerHTML="";
+  if(bar)bar.style.width="0%";
+  if(percent)percent.textContent="0%";
+  if(fileProgress)fileProgress.textContent=`0 / ${files.length}`;
+  if(okCount)okCount.textContent="0";
+  if(failCount)failCount.textContent="0";
+  if(currentFile)currentFile.textContent="PREPARING";
+  if(status)status.textContent="STARTING";
+
+  const onProgress=progress=>{
+    if(bar)bar.style.width=`${progress.percent}%`;
+    if(percent)percent.textContent=`${progress.percent}%`;
+    if(fileProgress)fileProgress.textContent=`${progress.index} / ${progress.total}`;
+    if(okCount)okCount.textContent=String(progress.ok);
+    if(failCount)failCount.textContent=String(progress.failed);
+    if(currentFile)currentFile.textContent=progress.file||"FINALIZING";
+
+    if(status){
+      const labels={
+        starting:"STARTING",
+        reading:"READING",
+        parsing:"PARSING JSON",
+        "indexing-bible":"INDEXING BIBLE",
+        "storing-library":"STORING LIBRARY",
+        complete:"COMPLETE",
+        failed:"FAILED",
+        finalizing:"SYNCING RESOURCE PACK",
+        done:"DONE"
+      };
+      status.textContent=labels[progress.state]||String(progress.state||"WORKING").toUpperCase();
+    }
+
+    if(log && progress.message && ["complete","failed"].includes(progress.state)){
+      const d=document.createElement("div");
+      d.textContent=`${progress.state==="failed"?"ERR":"OK"} :: ${progress.file||"(unnamed)"} :: ${progress.message}`;
+      log.appendChild(d);
+      log.scrollTop=log.scrollHeight;
+    }
+  };
+
+  try{
+    const result=await importMassJsonLibraries(files,onProgress);
+    if(status){
+      status.textContent=result.failed.length
+        ? `DONE // ${result.ok.length} OK // ${result.failed.length} FAILED`
+        : `DONE // ${result.ok.length} IMPORTED`;
+    }
+    if(bar)bar.style.width="100%";
+    if(percent)percent.textContent="100%";
+    if(currentFile)currentFile.textContent="COMPLETE";
+  }catch(err){
+    if(status)status.textContent="IMPORT ERROR";
+    if(currentFile)currentFile.textContent="ERROR";
+    if(log){
+      const d=document.createElement("div");
+      d.textContent=`ERR :: importer :: ${err.message}`;
+      log.appendChild(d);
+    }
+  }finally{
+    massLibraryImportBusy=false;
+    // Allow the same files to be intentionally re-selected after this cycle.
+    setTimeout(()=>massLibrarySeenFiles.clear(),1000);
+    e.target.value="";
+  }
+});
+
+
+function bloodlineMiniDbRows(){
+  const ids=new Set();
+  const rows=[];
+
+  const push=n=>{
+    if(!n?.id || ids.has(n.id))return;
+    ids.add(n.id);
+    const rec=n.record||n;
+    rows.push({
+      id:n.id,
+      name:n.name||rec.name||n.id,
+      kind:n.kind||rec.kind||n.type||n.dbType||"entity",
+      role:n.role||rec.role||"",
+      species:n.species||rec.species||"",
+      status:n.status||rec.status||"",
+      source:n.dbType||rec.dbType||"environment",
+      record:rec
+    });
+  };
+
+  try{(REBORN_TOPOLOGY?.nodes||[]).forEach(push)}catch{}
+  try{(typeof axiomShipEntities!=="undefined"?axiomShipEntities:[]).forEach(push)}catch{}
+  try{(typeof collectEntityDatabase==="function"?collectEntityDatabase():[]).forEach(push)}catch{}
+
+  return rows.sort((a,b)=>a.name.localeCompare(b.name));
+}
+
+function renderBloodlineMiniDb(query=""){
+  const q=String(query||"").trim().toLowerCase();
+  const all=bloodlineMiniDbRows();
+  const rows=all.filter(r=>
+    !q ||
+    r.name.toLowerCase().includes(q) ||
+    r.id.toLowerCase().includes(q) ||
+    r.kind.toLowerCase().includes(q) ||
+    r.role.toLowerCase().includes(q) ||
+    r.species.toLowerCase().includes(q) ||
+    r.status.toLowerCase().includes(q) ||
+    r.source.toLowerCase().includes(q)
+  );
+
+  const count=$("#bloodlineMiniDbCount");
+  if(count)count.textContent=`${rows.length}/${all.length}`;
+
+  const box=$("#bloodlineMiniDbResults");
+  if(!box)return;
+  box.innerHTML="";
+
+  rows.slice(0,300).forEach(r=>{
+    const row=document.createElement("div");
+    row.className="miniDbRow";
+    row.dataset.entityId=r.id;
+
+    const text=document.createElement("span");
+    text.className="miniDbRowText";
+    text.textContent=`${r.name} // ${r.kind}${r.species?` // ${r.species}`:""}`;
+
+    const actions=document.createElement("span");
+    actions.className="miniDbActions";
+
+    const inspect=document.createElement("button");
+    inspect.type="button";
+    inspect.title="Open entity inspector";
+    inspect.textContent="▦";
+    inspect.addEventListener("click",e=>{
+      e.stopPropagation();
+      const rec=r.record||r;
+      try{
+        if(typeof rebornOpenInspector==="function")rebornOpenInspector("pandora",rec);
+      }catch{}
+    });
+
+    const heli=document.createElement("button");
+    heli.type="button";
+    heli.title="Langley // move camera to entity";
+    heli.textContent="🚁";
+    heli.className="langleyCameraBtn";
+    heli.addEventListener("click",e=>{
+      e.stopPropagation();
+      langleyMoveCameraToEntity(r.id);
+    });
+
+    actions.append(inspect,heli);
+    row.append(text,actions);
+
+    row.addEventListener("click",()=> {
+      try{
+        if(typeof rebornOpenInspector==="function")rebornOpenInspector("pandora",r.record||r);
+      }catch{}
+    });
+
+    box.appendChild(row);
+  });
+}
+
+$("#bloodlineMiniDbSearch")?.addEventListener("input",e=>renderBloodlineMiniDb(e.target.value));
+
+document.querySelector("[data-bloodline-drawer-toggle]")?.addEventListener("click",()=>{
+  const drawer=$("#bloodlineDisclosure");
+  if(!drawer)return;
+  drawer.classList.toggle("drawer-collapsed");
+  const btn=drawer.querySelector(".compactChevron");
+  if(btn)btn.textContent=drawer.classList.contains("drawer-collapsed")?"›":"‹";
+});
+
+// Bloodline drawer starts OPEN.
+setTimeout(()=>renderBloodlineMiniDb(""),120);
+
+
+function langleyMoveCameraToEntity(entityId){
+  const canvas=$("#pandoraRebornCanvas");
+  if(!canvas || typeof rebornLayout!=="function")return false;
+
+  const rect=canvas.getBoundingClientRect();
+  let layout;
+  try{layout=rebornLayout(rect.width,rect.height)}catch{return false}
+  const p=layout?.[entityId];
+  if(!p)return false;
+
+  const state=rebornState?.pandora;
+  if(!state)return false;
+
+  // Pan entity toward the center of the viewport.
+  const cx=rect.width/2;
+  const cy=rect.height/2;
+  state.panX=(state.panX||0)+(cx-p.x);
+  state.panY=(state.panY||0)+(cy-p.y);
+
+  // Mild zoom-in, preserving user control.
+  state.zoom=Math.max(Number(state.zoom||1),1.15);
+
+  try{
+    selectedRebornEntity=entityId;
+  }catch{}
+
+  rebornEntityLog?.(`LANGLEY CAMERA :: ${entityId}`);
+  return true;
+}
+
+document.querySelector("[data-mini-db-toggle]")?.addEventListener("click",()=>{
+  const drawer=$("#miniDbDrawer");
+  if(!drawer)return;
+  drawer.classList.toggle("drawer-collapsed");
+  const btn=drawer.querySelector(".compactChevron");
+  if(btn)btn.textContent=drawer.classList.contains("drawer-collapsed")?"›":"‹";
+});
+
+const dropzone=$("#jsonLibraryDropzone");
+const massInput=$("#massLibraryUpload");
+if(dropzone && massInput){
+  const openPicker=()=>massInput.click();
+
+  dropzone.addEventListener("click",openPicker);
+  dropzone.addEventListener("keydown",e=>{
+    if(e.key==="Enter"||e.key===" "){
+      e.preventDefault();
+      openPicker();
+    }
+  });
+
+  ["dragenter","dragover"].forEach(type=>{
+    dropzone.addEventListener(type,e=>{
+      e.preventDefault();
+      dropzone.classList.add("dragging");
+    });
+  });
+
+  ["dragleave","drop"].forEach(type=>{
+    dropzone.addEventListener(type,e=>{
+      e.preventDefault();
+      dropzone.classList.remove("dragging");
+    });
+  });
+
+  dropzone.addEventListener("drop",e=>{
+    const files=[...(e.dataTransfer?.files||[])].filter(f=>/\.json$/i.test(f.name)||f.type==="application/json");
+    if(!files.length)return;
+
+    // Cannot assign FileList directly in all browsers; run importer directly.
+    const status=$("#massLibraryImportStatus");
+    const log=$("#massLibraryImportLog");
+    const bar=$("#massLibraryProgressBar");
+    const percent=$("#massLibraryPercent");
+    const fileProgress=$("#massLibraryFileProgress");
+    const okCount=$("#massLibraryOkCount");
+    const failCount=$("#massLibraryFailCount");
+    const currentFile=$("#massLibraryCurrentFile");
+
+    if(log)log.innerHTML="";
+    if(bar)bar.style.width="0%";
+    if(percent)percent.textContent="0%";
+    if(fileProgress)fileProgress.textContent=`0 / ${files.length}`;
+    if(okCount)okCount.textContent="0";
+    if(failCount)failCount.textContent="0";
+    if(currentFile)currentFile.textContent="PREPARING";
+    if(status)status.textContent="STARTING";
+
+    const onProgress=progress=>{
+      if(bar)bar.style.width=`${progress.percent}%`;
+      if(percent)percent.textContent=`${progress.percent}%`;
+      if(fileProgress)fileProgress.textContent=`${progress.index} / ${progress.total}`;
+      if(okCount)okCount.textContent=String(progress.ok);
+      if(failCount)failCount.textContent=String(progress.failed);
+      if(currentFile)currentFile.textContent=progress.file||"FINALIZING";
+      if(status)status.textContent=String(progress.state||"WORKING").toUpperCase();
+
+      if(log && progress.message && ["complete","failed"].includes(progress.state)){
+        const d=document.createElement("div");
+        d.textContent=`${progress.state==="failed"?"ERR":"OK"} :: ${progress.file} :: ${progress.message}`;
+        log.appendChild(d);
+        log.scrollTop=log.scrollHeight;
+      }
+    };
+
+    importMassJsonLibraries(files,onProgress).then(result=>{
+      if(status)status.textContent=result.failed.length
+        ? `DONE // ${result.ok.length} OK // ${result.failed.length} FAILED`
+        : `DONE // ${result.ok.length} IMPORTED`;
+      if(bar)bar.style.width="100%";
+      if(percent)percent.textContent="100%";
+      if(currentFile)currentFile.textContent="COMPLETE";
+    }).catch(err=>{
+      if(status)status.textContent="IMPORT ERROR";
+      if(log)log.textContent=err.message;
+    });
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+setTimeout(()=>{
+  
+  
+},180);
+
+// Keep Avatar suite synchronized when persistent chats save.
+if(typeof savePersistentChats==="function" && !savePersistentChats.__avatarWrapped){
+  const priorSave=savePersistentChats;
+  const wrapped=function(){
+    const result=priorSave.apply(this,arguments);
+    try{renderAvatarChatSessions()}catch{}
+    return result;
+  };
+  wrapped.__avatarWrapped=true;
+  savePersistentChats=wrapped;
+}
+
+
+// Avatar tab routing fallback. Existing generic tab router may already handle this.
+
+
+
+function explorerAvatarEntityRows(){
+  if(typeof avatarEntityRows==="function")return avatarEntityRows();
+  const ids=new Set(), rows=[];
+  const push=n=>{
+    if(!n?.id||ids.has(n.id))return;
+    ids.add(n.id);
+    const rec=n.record||n;
+    rows.push({
+      id:n.id,
+      name:n.name||rec.name||n.id,
+      kind:n.kind||rec.kind||n.type||n.dbType||"entity",
+      record:rec
+    });
+  };
+  try{(REBORN_TOPOLOGY?.nodes||[]).forEach(push)}catch{}
+  try{(typeof axiomShipEntities!=="undefined"?axiomShipEntities:[]).forEach(push)}catch{}
+  try{(typeof collectEntityDatabase==="function"?collectEntityDatabase():[]).forEach(push)}catch{}
+  return rows.sort((a,b)=>a.name.localeCompare(b.name));
+}
+
+function populateExplorerAvatarEntity(query=""){
+  const sel=$("#explorerAvatarEntity");
+  if(!sel)return;
+  const q=String(query||"").trim().toLowerCase();
+  const rows=explorerAvatarEntityRows().filter(r=>
+    !q ||
+    r.name.toLowerCase().includes(q) ||
+    r.id.toLowerCase().includes(q) ||
+    r.kind.toLowerCase().includes(q)
+  ).slice(0,400);
+
+  const current=sel.value;
+  sel.innerHTML="";
+  rows.forEach(r=>{
+    const o=document.createElement("option");
+    o.value=r.id;
+    o.textContent=`${r.name} // ${r.kind}`;
+    sel.appendChild(o);
+  });
+  if([...sel.options].some(o=>o.value===current))sel.value=current;
+}
+
+function entityForChatSession(session){
+  return explorerAvatarEntityRows().find(r=>r.id===session.entityId)?.record ||
+    {id:session.entityId,name:session.entityName,kind:session.entityType||"entity"};
+}
+
+async function sendExplorerAvatarMessage(session,input){
+  const q=input.value.trim();
+  if(!q)return;
+  input.value="";
+  appendPersistentChatMessage(session,"user",q);
+  renderExplorerAvatarSessions();
+
+  const rec=entityForChatSession(session);
+  let resourceContext="";
+  try{
+    if(typeof buildSharedScriptureContext==="function"){
+      resourceContext=await buildSharedScriptureContext(q,{maxChars:7000});
+    }
+  }catch{}
+
+  const prompt=`You are ${session.entityName||rec.name}, an entity inside The Light environment.
+Answer in first person.
+Do not claim literal consciousness or supernatural certainty.
+
+ENTITY:
+${JSON.stringify(rec)}
+
+RELEVANT SHARED RESOURCE CONTEXT:
+${resourceContext}
+
+CHAT HISTORY:
+${JSON.stringify((session.messages||[]).slice(-16))}
+
+USER:
+${q}`;
+
+  try{
+    const answer=await ollamaAsk(prompt);
+    appendPersistentChatMessage(session,"assistant",answer);
+  }catch(e){
+    appendPersistentChatMessage(session,"system","ERROR :: "+e.message);
+  }
+  renderExplorerAvatarSessions();
+  try{renderAvatarChatSessions?.()}catch{}
+}
+
+function renderExplorerAvatarSessions(){
+  const root=$("#explorerAvatarSessions");
+  if(!root)return;
+  const open=(persistentChats||[]).filter(c=>c.status==="open").slice().reverse();
+  if($("#explorerAvatarOpenCount"))$("#explorerAvatarOpenCount").textContent=open.length.toLocaleString();
+  root.innerHTML="";
+
+  if(!open.length){
+    root.innerHTML='<div class="feed">No open entity chats.</div>';
+    return;
+  }
+
+  open.slice(0,30).forEach(session=>{
+    const card=document.createElement("div");
+    card.className="explorerAvatarSession";
+    card.dataset.entityId=session.entityId||"";
+
+    const head=document.createElement("div");
+    head.className="explorerAvatarSessionHead";
+
+    const title=document.createElement("b");
+    title.textContent=session.entityName||session.name||session.entityId||"Entity";
+
+    const actions=document.createElement("div");
+    actions.className="explorerAvatarSessionActions";
+const collapse=document.createElement("button");
+    collapse.type="button";
+    collapse.textContent="⌄";
+    collapse.title="Collapse chat";
+    collapse.addEventListener("click",e=>{
+      e.stopPropagation();
+      card.classList.toggle("collapsed");
+    });
+
+    const close=document.createElement("button");
+    close.type="button";
+    close.textContent="×";
+    close.title="End chat";
+    close.addEventListener("click",e=>{
+      e.stopPropagation();
+      endPersistentChat(session.id);
+      renderExplorerAvatarSessions();
+      try{renderAvatarChatSessions?.()}catch{}
+    });
+
+    
+    const focus=document.createElement("button");
+    focus.type="button";
+    focus.className="avatarRightArrow";
+    focus.textContent="➜";
+    focus.title="Focus this chat";
+    focus.addEventListener("click",e=>{
+      e.stopPropagation();
+      card.classList.remove("collapsed");
+      input?.focus?.();
+    });
+
+actions.append(focus,collapse,close);
+    head.append(title,actions);
+
+    const body=document.createElement("div");
+    body.className="explorerAvatarSessionBody";
+
+    const msgs=document.createElement("div");
+    msgs.className="explorerAvatarMessages";
+    (session.messages||[]).slice(-12).forEach(m=>{
+      const d=document.createElement("div");
+      d.className="explorerAvatarMsg";
+      d.textContent=`${String(m.role||"").toUpperCase()} :: ${m.text}`;
+      msgs.appendChild(d);
+    });
+
+    const input=document.createElement("textarea");
+    input.placeholder=`Message ${session.entityName||"entity"}...`;
+    input.style.minHeight="48px";
+
+    const send=document.createElement("button");
+    send.className="action";
+    send.style.margin="0";
+    send.textContent="SEND";
+    send.addEventListener("click",()=>sendExplorerAvatarMessage(session,input));
+
+    input.addEventListener("keydown",e=>{
+      if(e.key==="Enter"&&!e.shiftKey&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!e.isComposing){
+        e.preventDefault();
+        sendExplorerAvatarMessage(session,input);
+      }
+    });
+
+    body.append(msgs,input,send);
+    card.append(head,body);
+    root.appendChild(card);
+  });
+}
+
+$("#explorerAvatarSearch")?.addEventListener("input",e=>populateExplorerAvatarEntity(e.target.value));
+$("#explorerAvatarStart")?.addEventListener("click",()=>{
+  const id=$("#explorerAvatarEntity")?.value;
+  if(!id)return;
+  const row=explorerAvatarEntityRows().find(r=>r.id===id);
+  if(!row)return;
+  startPersistentChat(row.record,"pandora-explorer",true);
+  renderExplorerAvatarSessions();
+  try{renderAvatarChatSessions?.()}catch{}
+});
+document.querySelector("[data-explorer-avatar-toggle]")?.addEventListener("click",()=>{
+  const panel=$("#explorerAvatarChat");
+  if(!panel)return;
+  panel.classList.toggle("drawer-collapsed");
+  const btn=panel.querySelector(".compactChevron");
+  if(btn)btn.textContent=panel.classList.contains("drawer-collapsed")?"➜":"‹";
+});
+
+// Add Langley buttons to all resolvable entity chat windows/cards.
+
+setTimeout(()=>{
+  populateExplorerAvatarEntity("");
+  renderExplorerAvatarSessions();
+  
+},180);
+
+
+
+// Keep mini Explorer chat stack synchronized with persistence.
+setTimeout(()=>{
+  if(typeof savePersistentChats==="function" && !savePersistentChats.__explorerWrapped){
+    const prior=savePersistentChats;
+    const wrapped=function(){
+      const result=prior.apply(this,arguments);
+      try{renderExplorerAvatarSessions()}catch{}
+      try{renderAvatarChatSessions?.()}catch{}
+      return result;
+    };
+    wrapped.__explorerWrapped=true;
+    savePersistentChats=wrapped;
+  }
+},0);
+
+
+
+
+document.querySelector("[data-bloodline-drawer-toggle]")?.addEventListener("click",()=>{
+  const drawer=$("#bloodlineDisclosure");
+  if(!drawer)return;
+  drawer.classList.toggle("drawer-collapsed");
+  const btn=drawer.querySelector(".compactChevron");
+  if(btn)btn.textContent=drawer.classList.contains("drawer-collapsed")?"›":"‹";
+});
+
+$("#masterBloodlineToggle")?.addEventListener("change",e=>{
+  rebornMultiplyGateOpen=!!e.target.checked;
+  if($("#bloodlineMasterStatus"))$("#bloodlineMasterStatus").textContent=rebornMultiplyGateOpen?"ON":"OFF";
+  if(rebornMultiplyGateOpen){
+    try{rebornEntityLog?.("BLOODLINE STARTED")}catch{}
+  }else{
+    try{rebornEntityLog?.("BLOODLINE PAUSED")}catch{}
+  }
+});
+
+
+setInterval(()=>{
+  const el=$("#treeBreathStatus");
+  if(!el)return;
+  const b=treeBreathPhase();
+  el.textContent=b.phase>.52?"INHALE":"EXHALE";
+},500);
+
+const THELIGHT_RUNTIME_URL="http://127.0.0.1:8791";
+
+async function rustRuntimeHealth(){
+  try{
+    const r=await fetch(`${THELIGHT_RUNTIME_URL}/health`,{signal:AbortSignal.timeout(900)});
+    if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    const data=await r.json();
+    const el=$("#rustRuntimeStatus");
+    if(el)el.textContent=`RUST ${data.version||"ONLINE"}`;
+    return true;
+  }catch{
+    const el=$("#rustRuntimeStatus");
+    if(el)el.textContent="JS FALLBACK";
+    return false;
+  }
+}
+
+async function rustValidateSnapshot(snapshot){
+  if(!(await rustRuntimeHealth()))return {ok:true,engine:"browser-fallback"};
+  const r=await fetch(`${THELIGHT_RUNTIME_URL}/snapshot/validate`,{
+    method:"POST",
+    headers:{"content-type":"application/json"},
+    body:JSON.stringify(snapshot)
+  });
+  return r.json();
+}
+
+setTimeout(rustRuntimeHealth,250);
+setInterval(rustRuntimeHealth,15000);
+
+
+let avatarActiveEntityId=null;
+
+function avatarResolveEntity(entityOrId){
+  if(!entityOrId)return null;
+  if(typeof entityOrId==="object")return entityOrId.record||entityOrId;
+
+  const id=String(entityOrId);
+  try{
+    return (
+      REBORN_TOPOLOGY?.nodes?.find(n=>n.id===id) ||
+      (typeof axiomShipEntities!=="undefined" ? axiomShipEntities.find(n=>n.id===id) : null) ||
+      (typeof collectEntityDatabase==="function" ? collectEntityDatabase().find(n=>n.id===id) : null)
+    ) || null;
+  }catch{
+    return null;
+  }
+}
+
+function avatarEntityPropertyView(rec){
+  if(!rec)return {};
+  const skip=new Set(["content","payload","text","messages","attachments"]);
+  const out={};
+  Object.entries(rec).forEach(([k,v])=>{
+    if(skip.has(k))return;
+    if(typeof v==="function")return;
+    if(v && typeof v==="object"){
+      try{
+        const str=JSON.stringify(v);
+        out[k]=str.length>800 ? "[complex object]" : v;
+      }catch{
+        out[k]="[unserializable]";
+      }
+    }else{
+      out[k]=v;
+    }
+  });
+  return out;
+}
+
+function setAvatarActiveEntity(entityOrId){
+  const rec=avatarResolveEntity(entityOrId);
+  if(!rec?.id)return false;
+
+  avatarActiveEntityId=rec.id;
+
+  const panel=$("#explorerAvatarChat");
+  if(panel){
+    panel.classList.add("avatar-open");
+    panel.classList.remove("drawer-collapsed");
+  }
+
+  if($("#avatarActiveEntityName"))$("#avatarActiveEntityName").textContent=rec.name||rec.id;
+  if($("#avatarActiveEntityKind"))$("#avatarActiveEntityKind").textContent=
+    `${rec.kind||rec.type||rec.dbType||"entity"} // ${rec.id}`;
+
+  const props=$("#avatarEntityProperties");
+  if(props){
+    props.textContent=JSON.stringify(avatarEntityPropertyView(rec),null,2);
+  }
+
+  const sel=$("#explorerAvatarEntity");
+  try{
+    if(sel && [...sel.options].some(o=>o.value===rec.id))sel.value=rec.id;
+  }catch{}
+
+  return true;
+}
+
+$("#avatarEntityHelicopter")?.addEventListener("click",()=>{
+  if(avatarActiveEntityId)langleyMoveCameraToEntity(avatarActiveEntityId);
+});
+
+$("#avatarEntityDetailsToggle")?.addEventListener("click",()=>{
+  const box=$("#avatarEntityDetails");
+  if(!box)return;
+  box.classList.toggle("collapsed");
+  const btn=$("#avatarEntityDetailsToggle");
+  if(btn)btn.textContent=box.classList.contains("collapsed")?"›":"⌄";
+});
+
+// Entity details are now shown inside Avatar Chat instead of the old hidden property panel.
+function openExplorerAvatarForEntity(entity){
+  const rec=entity?.record||entity;
+  if(!rec?.id)return null;
+
+  setAvatarActiveEntity(rec);
+
+  let session=null;
+  try{session=chatForEntity?.(rec.id,true)}catch{}
+  if(!session)session=startPersistentChat(rec,"pandora-entity-click",true);
+
+  try{populateExplorerAvatarEntity?.("")}catch{}
+  try{renderExplorerAvatarSessions?.()}catch{}
+
+  return session;
+}
+
+// First object/entity click reveals Avatar Chat and its entity property panel.
+document.addEventListener("click",e=>{
+  const hit=e.target.closest?.("[data-entity-id],[data-id]");
+  if(!hit)return;
+
+  const id=hit.dataset.entityId||hit.dataset.id;
+  if(!id)return;
+
+  const rec=avatarResolveEntity(id);
+  if(rec){
+    setAvatarActiveEntity(rec);
+  }
+},true);
+
+
+function syncPandoraInspectorToAvatar(entity){
+  const rec=entity?.record||entity;
+  if(!rec?.id)return false;
+
+  setAvatarActiveEntity?.(rec);
+
+  const panel=$("#explorerAvatarChat");
+  if(panel){
+    panel.classList.add("avatar-open");
+    panel.classList.remove("drawer-collapsed");
+  }
+
+  return true;
+}
+
+function pandoraInspectorEntity(){
+  const id=
+    window.selectedRebornEntity ||
+    $("#pandoraRebornInspector")?.dataset?.entityId ||
+    $("#pandoraRebornInspector [data-entity-id]")?.dataset?.entityId ||
+    null;
+
+  if(!id)return null;
+  return avatarResolveEntity?.(id) || null;
+}
+
+// Clicking the Pandora inspector opens/focuses Avatar chat for the selected entity.
+$("#pandoraRebornInspector")?.addEventListener("click",e=>{
+  const explicit=e.target.closest?.("[data-entity-id],[data-id]");
+  const id=explicit?.dataset?.entityId || explicit?.dataset?.id;
+  const rec=id ? avatarResolveEntity?.(id) : pandoraInspectorEntity();
+  if(rec)openExplorerAvatarForEntity(rec);
+});
+
+// When an entity row/control inside the inspector changes selection, mirror it into Avatar.
+$("#pandoraRebornInspector")?.addEventListener("change",e=>{
+  const explicit=e.target.closest?.("[data-entity-id],[data-id]");
+  const id=explicit?.dataset?.entityId || explicit?.dataset?.id;
+  const rec=id ? avatarResolveEntity?.(id) : pandoraInspectorEntity();
+  if(rec)syncPandoraInspectorToAvatar(rec);
+});
+
+// If the existing inspector renderer marks a selected entity, keep Avatar details synchronized.
+const pandoraInspectorObserver=new MutationObserver(()=>{
+  const rec=pandoraInspectorEntity();
+  if(rec && $("#explorerAvatarChat")?.classList.contains("avatar-open")){
+    syncPandoraInspectorToAvatar(rec);
+  }
+});
+if($("#pandoraRebornInspector")){
+  pandoraInspectorObserver.observe($("#pandoraRebornInspector"),{
+    childList:true,
+    subtree:true,
+    attributes:true,
+    attributeFilter:["data-entity-id","data-id"]
+  });
+}
+
+// Explicitly activate Pandora on initial load in case an older router overrides HTML classes.
+setTimeout(()=>{
+  document.querySelectorAll("section.pane").forEach(p=>p.classList.remove("active"));
+  $("#pandoraPane")?.classList.add("active");
+
+  document.querySelectorAll("[data-tab]").forEach(b=>b.classList.remove("active"));
+  document.querySelector('[data-tab="pandora"]')?.classList.add("active");
+
+  try{resizeReborn?.()}catch{}
+  try{renderBloodlineMiniDb?.("")}catch{}
+},60);
+
+
+setInterval(()=>{
+  const el=$("#treeWindStatus");
+  if(!el)return;
+  const t=performance.now()/1000;
+  const gust=Math.abs(Math.sin(t*.27)+Math.sin(t*.11)*.6);
+  el.textContent=gust>.95?"GUST":gust>.45?"BREEZE":"CALM";
+},700);
+
 </script>
+<div id="entityHoverTip" class="entityHoverTip"></div>
 </body>
 </html>
